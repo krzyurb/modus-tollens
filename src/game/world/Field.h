@@ -8,10 +8,10 @@ protected:
     int x, y;
     std::string kind;
     std::string name;
-    std::unique_ptr<World> world;
+    std::shared_ptr<World> world;
 
 public:
-    Field(int x, int y, World *world = nullptr);
+    Field(int x, int y, const std::shared_ptr<World>& world);
     virtual ~Field();
 
     const std::string& getKind() const {
@@ -30,11 +30,11 @@ public:
         this->name = name;
     }
 
-    const std::unique_ptr<World>& getWorld() const {
+    const std::shared_ptr<World>& getWorld() const {
         return world;
     }
 
-    void setWorld(const std::unique_ptr<World>& world) {
+    void setWorld(const std::shared_ptr<World>& world) {
         this->world = world;
     }
 

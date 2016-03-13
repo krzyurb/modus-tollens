@@ -1,7 +1,8 @@
 #pragma once
 
 #include <string>
-#include "World.h"
+#include "../World.h"
+#include "../Field.h"
 
 class Water : public Field {
 private:
@@ -10,7 +11,7 @@ private:
     int salinity;
 
 public:
-    Water(int x, int y, World *world = nullptr);
+    Water(int x, int y, const std::shared_ptr<World>& world);
 
     int getDepth() const {
         return depth;
