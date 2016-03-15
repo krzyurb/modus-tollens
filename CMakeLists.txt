@@ -3,10 +3,12 @@ project(modus_tollens)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-include_directories(
-    ${CMAKE_SOURCE_DIR}/game/world
-    ${CMAKE_SOURCE_DIR}/game/world/fields
-    ${CMAKE_SOURCE_DIR}/game/world/materials
+set(INCLUDES
+    ${CMAKE_SOURCE_DIR}/src
+    ${CMAKE_SOURCE_DIR}/src/game/
+    ${CMAKE_SOURCE_DIR}/src/game/world
+    ${CMAKE_SOURCE_DIR}/src/game/world/fields
+    ${CMAKE_SOURCE_DIR}/src/game/world/materials
 )
 
 set(SOURCE_FILES
@@ -18,4 +20,5 @@ set(SOURCE_FILES
     src/game/world/materials/Soil.cpp
 )
 
+include_directories(${INCLUDES})
 add_executable(modus_tollens ${SOURCE_FILES})
