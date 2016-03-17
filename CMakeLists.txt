@@ -26,7 +26,12 @@ set(TEST_SOURCES
 
 include_directories(${INCLUDES})
 
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
+find_package(SFML REQUIRED system window graphics network audio)
+include_directories(${SFML_INCLUDE_DIRS})
+
 add_executable(modus_tollens ${SOURCE_FILES})
+target_link_libraries(modus_tollens ${SFML_LIBRARIES})
 
 enable_testing()
 find_package(GTest REQUIRED)
