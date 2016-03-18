@@ -1,9 +1,9 @@
 #pragma once
 
 #include <string>
-#include "../World.h"
-#include "../Field.h"
-#include "../materials/Soil.h"
+#include "World.h"
+#include "Field.h"
+#include "Soil.h"
 
 class Meadow : public Field {
 private:

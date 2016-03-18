@@ -1,6 +1,5 @@
 #include "Meadow.h"
-#include "../materials/Soil.h"
-#include "../../../GameData.hpp"
+#include "GameData.hpp"
 
 Meadow::Meadow(int x, int y, const std::shared_ptr<World>& world) : Field(x,y, world) {
     this->kind = "Meadow";
