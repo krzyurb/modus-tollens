@@ -9,7 +9,7 @@ class GameData {
 public:
     template<typename T>
     static T read(std::string fileName, std::string key){
-        T value;
+        T value {};
         try
         {
             boost::property_tree::ptree pt;
