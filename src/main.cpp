@@ -1,9 +1,18 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 int main()
 {
     // create the window
-    sf::RenderWindow window(sf::VideoMode(200, 200), "Modus tollens");
+    sf::RenderWindow window(sf::VideoMode(1500, 1000), "Modus tollens", sf::Style::Titlebar | sf::Style::Close);
+
+    sf::Texture texture;
+    sf::Sprite sprite;
+    if (!texture.loadFromFile("resources/fields/meadow.png"))
+    {
+        // err
+    }
+    sprite.setTexture(texture);
 
     // run the program as long as the window is open
     while (window.isOpen())
@@ -22,12 +31,11 @@ int main()
 
         // draw everything here...
         // window.draw(...);
-        sf::CircleShape circle(100, 100);
-        window.draw(circle);
+
+        window.draw(sprite);
 
         // end the current frame
         window.display();
     }
-
     return 0;
 }
