@@ -2,7 +2,7 @@
 #include "GameData.hpp"
 
 Meadow::Meadow(int x, int y, const std::shared_ptr<World>& world) : Field(x,y, world) {
-    this->kind = "Meadow";
+    this->kind = "meadow";
 }
 
 void Meadow::setSoil(const std::string name) {

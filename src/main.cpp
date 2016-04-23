@@ -5,8 +5,8 @@
 int main()
 {
     // create the window
-    sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Modus tollens",
-                            sf::Style::Fullscreen | sf::Style::Titlebar | sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode(800,600), "Modus tollens",
+                            sf::Style::Titlebar | sf::Style::Close);
 
 
     Renderer renderer(window);
