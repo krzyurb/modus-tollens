@@ -7,6 +7,7 @@
 #include "Renderer.h"
 
 class Renderer;
+class World;
 
 class Field {
 protected:
