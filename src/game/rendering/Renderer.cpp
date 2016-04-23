@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Field.h"
+#include "World.h"
 
 Renderer::Renderer(sf::RenderWindow & window):window(window) {}
 
@@ -19,4 +20,9 @@ void Renderer::drawField(const Field &field){
     sprite.setTexture(texture);
     sprite.setPosition(field.getX(), field.getY());
     window.draw(sprite);
+}
+
+void Renderer::drawWorld(const World &world){
+    for( size_t i = 0; i < world.getFields().size(); i++ )
+        world.getFields()[i].render(*this);
 }

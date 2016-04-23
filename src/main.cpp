@@ -10,8 +10,7 @@ int main()
 
 
     Renderer renderer(window);
-    Field *meadow = new Meadow(0, 0, nullptr);
-    Field *water  = new Water(0, 16, nullptr);
+    World world;
 
     // run the program as long as the window is open
     while (window.isOpen())
@@ -28,9 +27,8 @@ int main()
         // clear the window with black color
         window.clear(sf::Color::Black);
 
-        renderer.drawField(*meadow);
-        renderer.drawField(*water);
-
+        // render whole world
+        world.render(renderer);
         window.display();
     }
     return 0;
