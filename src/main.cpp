@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
-#include "Renderer.h"
+#include "Meadow.h"
+#include "Water.h"
 
 int main()
 {
@@ -7,15 +8,10 @@ int main()
     sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Modus tollens",
                             sf::Style::Fullscreen | sf::Style::Titlebar | sf::Style::Close);
 
-    sf::Texture texture;
-    sf::Sprite sprite;
-    if (!texture.loadFromFile("resources/fields/meadow.png"))
-    {
-        // err
-    }
-    sprite.setTexture(texture);
 
     Renderer renderer(window);
+    Field *meadow = new Meadow(0, 0, nullptr);
+    Field *water  = new Water(0, 16, nullptr);
 
     // run the program as long as the window is open
     while (window.isOpen())
@@ -32,7 +28,8 @@ int main()
         // clear the window with black color
         window.clear(sf::Color::Black);
 
-        renderer.drawSprite(sprite);
+        renderer.drawField(*meadow);
+        renderer.drawField(*water);
 
         window.display();
     }

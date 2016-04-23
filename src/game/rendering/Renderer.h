@@ -1,6 +1,9 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include "Field.h"
+
+class Field;
 
 class Renderer {
 private:
@@ -9,4 +12,6 @@ public:
     Renderer(sf::RenderWindow & window);
 
     void drawSprite(const sf::Sprite &sprite);
+
+    void drawField(const Field &field);
 };
