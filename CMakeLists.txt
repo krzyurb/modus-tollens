@@ -6,6 +6,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -O2")
 set(INCLUDES
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_SOURCE_DIR}/src/game/
+    ${CMAKE_SOURCE_DIR}/src/game/rendering
     ${CMAKE_SOURCE_DIR}/src/game/world
     ${CMAKE_SOURCE_DIR}/src/game/world/fields
     ${CMAKE_SOURCE_DIR}/src/game/world/materials
@@ -18,7 +19,7 @@ set(SOURCE_FILES
     src/game/world/fields/Meadow.cpp
     src/game/world/fields/Water.cpp
     src/game/world/materials/Soil.cpp
-)
+    src/game/rendering/Renderer.cpp)
 
 set(TEST_SOURCES
     test/GameData_test.cpp
