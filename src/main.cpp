@@ -4,7 +4,8 @@
 int main()
 {
     // create the window
-    sf::RenderWindow window(sf::VideoMode(1500, 1000), "Modus tollens", sf::Style::Titlebar | sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Modus tollens",
+                            sf::Style::Fullscreen | sf::Style::Titlebar | sf::Style::Close);
 
     sf::Texture texture;
     sf::Sprite sprite;
