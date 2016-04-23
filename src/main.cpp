@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include <iostream>
+#include "Renderer.h"
 
 int main()
 {
@@ -14,6 +14,8 @@ int main()
         // err
     }
     sprite.setTexture(texture);
+
+    Renderer renderer(window);
 
     // run the program as long as the window is open
     while (window.isOpen())
@@ -30,12 +32,8 @@ int main()
         // clear the window with black color
         window.clear(sf::Color::Black);
 
-        // draw everything here...
-        // window.draw(...);
+        renderer.drawSprite(sprite);
 
-        window.draw(sprite);
-
-        // end the current frame
         window.display();
     }
     return 0;
