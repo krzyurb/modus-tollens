@@ -1,8 +1,10 @@
 #include <SFML/Graphics.hpp>
+
 #include "WorldGenerator.h"
 
 int main()
 {
+    srand(time(nullptr));
     // create the window
     sf::RenderWindow window(sf::VideoMode(860,509), "Modus tollens", sf::Style::Titlebar | sf::Style::Close);
 
