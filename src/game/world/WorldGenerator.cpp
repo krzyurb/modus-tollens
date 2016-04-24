@@ -4,6 +4,13 @@
 #include "WorldGenerator.h"
 #include "FieldFactory.h"
 
+World WorldGenerator::generate() {
+    int width  = GameData::read<int>("world", "width");
+    int height = GameData::read<int>("world", "height");
+
+    return generate(width, height);
+}
+
 World WorldGenerator::generate(int width, int height) {
     std::shared_ptr<World> world(new World);
     FieldFactory fieldFactory(world);

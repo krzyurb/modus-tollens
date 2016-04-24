@@ -8,6 +8,7 @@ enum class TileKind{
 
 class WorldGenerator {
 public:
+    static World generate();
     static World generate(int width, int height);
 private:
     static TileKind randomizeTileKind();

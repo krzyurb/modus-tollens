@@ -1,3 +1,5 @@
 {
-	"tileSize" : 17
+	"tileSize" : 17,
+	"width"    : 40,
+	"height"   : 30
 }
