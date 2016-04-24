@@ -1,14 +1,13 @@
 #include <SFML/Graphics.hpp>
-#include "Meadow.h"
-#include "Water.h"
+#include "WorldGenerator.h"
 
 int main()
 {
     // create the window
-    sf::RenderWindow window(sf::VideoMode(800,600), "Modus tollens", sf::Style::Titlebar | sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode(860,509), "Modus tollens", sf::Style::Titlebar | sf::Style::Close);
 
     Renderer renderer(window);
-    World world(40, 30);
+    World world = WorldGenerator::generate(40, 30);
 
     // run the program as long as the window is open
     while (window.isOpen())

@@ -5,16 +5,18 @@
 #include "Field.h"
 #include "Renderer.h"
 
-class Field;
-
 class World {
 public:
-    World(int width, int height);
+    World();
     ~World();
     void render(Renderer &renderer);
 
     const std::vector<Field> &getFields() const {
         return fields;
+    }
+
+    void addField(const Field &field) {
+        fields.push_back(field);
     }
 
 private:
