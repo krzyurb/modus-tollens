@@ -9,7 +9,7 @@ class Field;
 
 class World {
 public:
-    World();
+    World(int width, int height);
     ~World();
     void render(Renderer &renderer);
 

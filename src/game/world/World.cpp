@@ -2,9 +2,9 @@
 #include "World.h"
 #include "Renderer.h"
 
-World::World() {
-    for(int i = 0; i < 20; i++){
-        for(int j = 0; j < 20; j++){
+World::World(int width, int height) {
+    for(int i = 0; i < width; i++){
+        for(int j = 0; j < height; j++){
             this->fields.push_back(Meadow(i * 16, j * 16, nullptr));
         }
     }
