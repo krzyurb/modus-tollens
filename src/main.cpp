@@ -7,7 +7,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(860,509), "Modus tollens", sf::Style::Titlebar | sf::Style::Close);
 
     Renderer renderer(window);
-    World world = WorldGenerator::generate(40, 30);
+    World world = WorldGenerator::generate();
 
     // run the program as long as the window is open
     while (window.isOpen())
