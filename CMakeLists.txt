@@ -33,9 +33,3 @@ include_directories(${SFML_INCLUDE_DIRS})
 
 add_executable(modus_tollens ${SOURCE_FILES})
 target_link_libraries(modus_tollens ${SFML_LIBRARIES})
-
-enable_testing()
-find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
-add_executable(modus_tollens_test ${TEST_SOURCES})
-target_link_libraries(modus_tollens_test ${GTEST_BOTH_LIBRARIES})
