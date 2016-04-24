@@ -11,14 +11,14 @@ public:
     ~World();
     void render(Renderer &renderer);
 
-    const std::vector<Field> &getFields() const {
+    const std::vector<Field*> &getFields() const {
         return fields;
     }
 
-    void addField(const Field &field) {
+    void addField(Field * field) {
         fields.push_back(field);
     }
 
 private:
-    std::vector <Field> fields;
+    std::vector<Field*> fields;
 };

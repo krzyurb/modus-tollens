@@ -23,6 +23,6 @@ void Renderer::drawField(const Field &field){
 }
 
 void Renderer::drawWorld(const World &world){
-    for( size_t i = 0; i < world.getFields().size(); i++ )
-        world.getFields()[i].render(*this);
+    for(auto field : world.getFields())
+        field->render(*this);
 }
