@@ -19,7 +19,7 @@ set(SOURCE_FILES
     src/game/world/fields/Meadow.cpp
     src/game/world/fields/Water.cpp
     src/game/world/materials/Soil.cpp
-    src/game/rendering/Renderer.cpp)
+    src/game/rendering/Renderer.cpp src/game/world/WorldGenerator.cpp src/game/world/WorldGenerator.h)
 
 set(TEST_SOURCES
     test/GameData_test.cpp
