@@ -1,10 +1,14 @@
 #include <SFML/Graphics.hpp>
 #include "WorldGenerator.h"
+#include "GameData.hpp"
 
 int main()
 {
     // create the window
-    sf::RenderWindow window(sf::VideoMode(860,509), "Modus tollens", sf::Style::Titlebar | sf::Style::Close);
+    int width  = GameData::read<int>("gameWindow", "width");
+    int height = GameData::read<int>("gameWindow", "height");
+    std::string title = GameData::read<std::string>("gameWindow", "title");
+    sf::RenderWindow window(sf::VideoMode(width , height), title, sf::Style::Titlebar | sf::Style::Close);
 
     Renderer renderer(window);
     World world = WorldGenerator::generate();
