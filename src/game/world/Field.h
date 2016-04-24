@@ -2,7 +2,12 @@
 
 #include <string>
 #include <memory>
+
 #include "World.h"
+#include "Renderer.h"
+
+class Renderer;
+class World;
 
 class Field {
 protected:
@@ -22,6 +27,8 @@ public:
     void setKind(const std::string& kind) {
         this->kind = kind;
     }
+
+    void render(Renderer &renderer)const;
 
     const std::string& getName() const {
         return name;

@@ -1,18 +1,14 @@
 #include <SFML/Graphics.hpp>
-#include <iostream>
+#include "Meadow.h"
+#include "Water.h"
 
 int main()
 {
     // create the window
-    sf::RenderWindow window(sf::VideoMode(1500, 1000), "Modus tollens", sf::Style::Titlebar | sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode(800,600), "Modus tollens", sf::Style::Titlebar | sf::Style::Close);
 
-    sf::Texture texture;
-    sf::Sprite sprite;
-    if (!texture.loadFromFile("resources/fields/meadow.png"))
-    {
-        // err
-    }
-    sprite.setTexture(texture);
+    Renderer renderer(window);
+    World world(40, 30);
 
     // run the program as long as the window is open
     while (window.isOpen())
@@ -29,12 +25,8 @@ int main()
         // clear the window with black color
         window.clear(sf::Color::Black);
 
-        // draw everything here...
-        // window.draw(...);
-
-        window.draw(sprite);
-
-        // end the current frame
+        // render whole world
+        world.render(renderer);
         window.display();
     }
     return 0;
