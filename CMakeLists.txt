@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.3)
 project(modus_tollens)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -O2")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -O2")
 
 set(INCLUDES
     ${CMAKE_SOURCE_DIR}/src
