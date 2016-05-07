@@ -16,4 +16,5 @@ public:
     ~GameTimer();
     void start();
     void tick();
+    unsigned int getTicks() const { return ticks; }
 };

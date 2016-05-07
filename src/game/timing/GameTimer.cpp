@@ -18,6 +18,7 @@ void GameTimer::start() {
 void GameTimer::tick() {
     while (running) {
         if (clock.getElapsedTime().asMilliseconds() == (sf::Int32)tickDuration) {
+            ++ticks;
             notifyAll();
             clock.restart();
         }
