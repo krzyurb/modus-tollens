@@ -33,9 +33,7 @@ void Renderer::drawWorld(const World &world){
 
     for(auto field : world.getFields()) {
         field->render(*this, false);
-        if(selectedField != nullptr) {
-            selectedField->render(*this, true);
-        }
+        selectedField->render(*this, true);
     }
 }
 
@@ -48,9 +46,7 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
         std::cout << "No font found" << std::endl;
     }
 
-    if(selectedField != nullptr) {
-        text.setString(sf::String(*selectedField));
-    }
+    text.setString(sf::String(*selectedField));
 
     text.setFont(font);
     text.setCharacterSize(18);

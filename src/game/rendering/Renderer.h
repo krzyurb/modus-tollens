@@ -28,5 +28,4 @@ public:
     void drawSidebar(const Sidebar &sidebar);
 
     void setFieldSelector(FieldSelector * fieldSelector);
-
 };

@@ -1,7 +1,9 @@
 #include <GameData.hpp>
 #include "game/world/World.h"
 
-FieldSelector::FieldSelector(World *world) : world(world) {}
+FieldSelector::FieldSelector(World *world) : world(world) {
+    selectedField = world->getFields()[0];
+}
 
 Field *FieldSelector::findField(int x, int y)
 {
