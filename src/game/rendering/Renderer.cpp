@@ -39,6 +39,10 @@ void Renderer::drawWorld(const World &world){
     }
 }
 
+void Renderer::drawSidebar(const Sidebar &sidebar){
+
+}
+
 void Renderer::setFieldSelector(FieldSelector * fieldSelector) {
     this->fieldSelector = fieldSelector;
 }

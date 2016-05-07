@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <game/window/Sidebar.h>
 #include "game/window/FieldsSelector.h"
 #include "World.h"
 #include "Field.h"
@@ -22,6 +23,8 @@ public:
     void drawField(const Field &field, bool dark);
 
     void drawWorld(const World &world);
+
+    void drawSidebar(const Sidebar &sidebar);
 
     void setFieldSelector(FieldSelector * fieldSelector);
 

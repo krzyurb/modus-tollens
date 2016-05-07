@@ -34,7 +34,9 @@ set(SOURCE_FILES
     src/game/timing/Calendar.cpp
     src/game/timing/Calendar.h
     src/game/window/FieldSelector.cpp
-    src/game/window/FieldsSelector.h)
+    src/game/window/FieldsSelector.h
+    src/game/window/Sidebar.cpp
+    src/game/window/Sidebar.h)
 
 set(TEST_SOURCES
     test/GameData_test.cpp

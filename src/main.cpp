@@ -1,5 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <game/window/FieldsSelector.h>
+#include <game/window/Sidebar.h>
+
 #include "WorldGenerator.h"
 #include "GameData.hpp"
 #include "GameTimer.h"
@@ -18,6 +20,8 @@ int main()
     World world = WorldGenerator::generate();
     FieldSelector fieldSelector(&world);
     renderer.setFieldSelector(&fieldSelector);
+    
+    Sidebar sidebar;
 
     int ticksPerDay = GameData::read<int>("game", "ticksPerDay");
     int tickDuration = GameData::read<int>("game", "tickDuration");
@@ -48,6 +52,10 @@ int main()
 
         // render whole world
         world.render(renderer);
+
+        // render sidebar
+        sidebar.render(renderer);
+        
         window.display();
     }
     return 0;
