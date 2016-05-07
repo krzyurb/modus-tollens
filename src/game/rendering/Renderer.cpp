@@ -40,7 +40,23 @@ void Renderer::drawWorld(const World &world){
 }
 
 void Renderer::drawSidebar(const Sidebar &sidebar){
+    Field *selectedField = fieldSelector->getSelectedField();
 
+    sf::Text text;
+    sf::Font font;
+    if (!font.loadFromFile("resources/arial.ttf")) {
+        std::cout << "No font found" << std::endl;
+    }
+
+    if(selectedField != nullptr) {
+        text.setString(sf::String(*selectedField));
+    }
+
+    text.setFont(font);
+    text.setCharacterSize(18);
+    text.setColor(sf::Color::White);
+    text.setPosition(sidebar.getX(), 10);
+    window.draw(text);
 }
 
 void Renderer::setFieldSelector(FieldSelector * fieldSelector) {

@@ -55,7 +55,7 @@ int main()
 
         // render sidebar
         sidebar.render(renderer);
-        
+
         window.display();
     }
     return 0;

@@ -8,6 +8,7 @@
 
 class Field;
 class World;
+class Sidebar;
 class FieldSelector;
 
 class Renderer {

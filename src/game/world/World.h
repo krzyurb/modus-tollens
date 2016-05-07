@@ -5,6 +5,9 @@
 #include "Field.h"
 #include "Renderer.h"
 
+class Renderer;
+class Field;
+
 class World {
 public:
     World();

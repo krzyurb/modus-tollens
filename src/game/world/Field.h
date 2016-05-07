@@ -20,6 +20,8 @@ public:
     Field(int x, int y, const std::shared_ptr<World>& world);
     virtual ~Field();
 
+    operator std::string();
+
     const std::string& getKind() const {
         return kind;
     }
