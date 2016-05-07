@@ -17,8 +17,8 @@ int main()
     sf::RenderWindow window(sf::VideoMode(width , height), title, sf::Style::Titlebar | sf::Style::Close);
 
     Renderer renderer(window);
-    World world = WorldGenerator::generate();
-    FieldSelector fieldSelector(&world);
+    std::shared_ptr<World> world = WorldGenerator::generate();
+    FieldSelector fieldSelector(world.get());
     renderer.setFieldSelector(&fieldSelector);
     
     Sidebar sidebar;
@@ -51,7 +51,7 @@ int main()
         window.clear(sf::Color::Black);
 
         // render whole world
-        world.render(renderer);
+        world->render(renderer);
 
         // render sidebar
         sidebar.render(renderer);
