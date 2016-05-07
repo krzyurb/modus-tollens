@@ -27,7 +27,10 @@ set(SOURCE_FILES
     src/game/rendering/Renderer.cpp
     src/game/world/FieldFactory.cpp
     src/game/world/WorldGenerator.cpp
-    src/game/world/WorldGenerator.h src/game/timing/GameTimer.cpp src/game/timing/GameTimer.h)
+    src/game/world/WorldGenerator.h
+    src/game/timing/GameTimer.cpp
+    src/game/timing/Observable.cpp
+    src/game/timing/Observable.cpp)
 
 set(TEST_SOURCES
     test/GameData_test.cpp

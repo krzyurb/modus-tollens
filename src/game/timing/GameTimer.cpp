@@ -1,20 +1,24 @@
 #include <iostream>
 #include "GameTimer.h"
 
-GameTimer::GameTimer(unsigned int tickDuration) : tickDuration(tickDuration), ticks(0) {
+GameTimer::GameTimer(unsigned int tickDuration) : tickDuration(tickDuration), ticks(0), running(false) {
+}
 
+GameTimer::~GameTimer() {
+    running = false;
 }
 
 void GameTimer::start() {
     clock.restart();
+    running = true;
     ticker = std::thread(&GameTimer::tick, this);
     ticker.detach();
 }
 
 void GameTimer::tick() {
-    while (true) {
-        if (clock.getElapsedTime().asMilliseconds() == tickDuration) {
-            std::cout << "tick " << ++ticks << '\n';
+    while (running) {
+        if (clock.getElapsedTime().asMilliseconds() == (sf::Int32)tickDuration) {
+            notifyAll();
             clock.restart();
         }
     }
