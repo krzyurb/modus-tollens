@@ -7,6 +7,10 @@ FieldSelector::FieldSelector(World *world) : world(world) {
 
 Field *FieldSelector::findField(int x, int y)
 {
+    if(!inRange(x,y)){
+        return nullptr;
+    }
+
     int tileSize = GameData::read<int>("world", "tileSize");
     int col = y / tileSize + 1;
     int row = x / tileSize + 1;
@@ -16,4 +20,11 @@ Field *FieldSelector::findField(int x, int y)
     selectedField = foundField;
 
     return foundField;
+}
+
+bool FieldSelector::inRange(int x, int y){
+    int tileSize = GameData::read<int>("world", "tileSize");
+    int width    = GameData::read<int>("world", "width")  * tileSize;
+    int height   = GameData::read<int>("world", "height") * tileSize;
+    return (x < width && y < height);
 }

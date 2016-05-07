@@ -11,6 +11,8 @@ public:
     FieldSelector(World *world);
     Field *findField(int x, int y);
 
+    bool inRange(int x, int y);
+
     Field *getSelectedField() const {
         return selectedField;
     }
