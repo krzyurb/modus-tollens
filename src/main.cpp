@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
-
 #include "WorldGenerator.h"
 #include "GameData.hpp"
+#include "GameTimer.h"
 
 int main()
 {
@@ -14,6 +14,8 @@ int main()
 
     Renderer renderer(window);
     World world = WorldGenerator::generate();
+    GameTimer timer;
+    timer.start();
 
     // run the program as long as the window is open
     while (window.isOpen())
