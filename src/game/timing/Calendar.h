@@ -2,9 +2,10 @@
 
 class Calendar : public Observer {
 private:
-    const unsigned int ticksPerDay = 1;
+    unsigned int ticksPerDay;
     unsigned int day;
 public:
+    Calendar(unsigned int ticksPerDay = 10) : ticksPerDay(ticksPerDay), day(1) {}
     unsigned int getDay() const {
         return day;
     }

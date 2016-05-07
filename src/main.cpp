@@ -15,8 +15,12 @@ int main()
 
     Renderer renderer(window);
     World world = WorldGenerator::generate();
-    Calendar calendar;
-    GameTimer timer;
+
+    int ticksPerDay = GameData::read<int>("game", "ticksPerDay");
+    int tickDuration = GameData::read<int>("game", "tickDuration");
+
+    GameTimer timer(tickDuration);
+    Calendar calendar(ticksPerDay);
     timer.addObserver(&calendar);
     timer.start();
 
