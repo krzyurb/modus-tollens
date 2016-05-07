@@ -5,6 +5,7 @@
 #include "FieldsSelector.h"
 #include "World.h"
 #include "Field.h"
+#include "ResourceHolder.h"
 
 class Field;
 class World;
@@ -13,6 +14,7 @@ class FieldSelector;
 
 class Renderer {
 private:
+    ResourceHolder resourceHolder;
     sf::RenderWindow & window;
     FieldSelector * fieldSelector;
 

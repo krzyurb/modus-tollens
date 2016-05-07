@@ -12,12 +12,7 @@ void Renderer::drawField(const Field &field, bool dark){
     sf::Texture texture;
     sf::Sprite  sprite;
 
-    if (!texture.loadFromFile("resources/fields/" + field.getKind() + ".png"))
-    {
-        std::cout << "No texture found" << std::endl;
-    }
-
-    sprite.setTexture(texture);
+    sprite.setTexture(resourceHolder.getField(field.getKind()));
     sprite.setPosition(field.getX(), field.getY());
 
     if(dark){
@@ -45,22 +40,14 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
     sf::Text text;
     sf::Font font;
 
-    if (!font.loadFromFile("resources/arial.ttf")) {
-        std::cout << "No font found" << std::endl;
-    }
-
     text.setString(sf::String(*selectedField));
 
-    text.setFont(font);
+    text.setFont(resourceHolder.getArial());
     text.setCharacterSize(18);
     text.setColor(sf::Color::White);
     text.setPosition(sidebar.getX(), 10);
 
-    if (!texture.loadFromFile("resources/fields/" + selectedField->getKind() + "_preview.png")) {
-        std::cout << "No texture found" << std::endl;
-    }
-
-    sprite.setTexture(texture);
+    sprite.setTexture(resourceHolder.getField(selectedField->getKind() + "_preview"));
     sprite.setPosition(sidebar.getX(), 40);
 
     window.draw(sprite);

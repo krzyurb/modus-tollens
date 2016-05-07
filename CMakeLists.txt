@@ -37,7 +37,8 @@ set(SOURCE_FILES
     src/game/window/FieldSelector.cpp
     src/game/window/FieldsSelector.h
     src/game/window/Sidebar.cpp
-    src/game/window/Sidebar.h)
+    src/game/window/Sidebar.h
+    src/game/rendering/ResourceHolder.cpp)
 
 set(TEST_SOURCES
     test/GameData_test.cpp
@@ -50,5 +51,8 @@ find_package(SFML REQUIRED system window graphics network audio)
 include_directories(${SFML_INCLUDE_DIRS})
 
 find_package (Threads)
+find_package( Boost 1.60 COMPONENTS filesystem REQUIRED )
+include_directories( ${Boost_INCLUDE_DIR} )
+
 add_executable(modus_tollens ${SOURCE_FILES})
-target_link_libraries(modus_tollens ${SFML_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(modus_tollens ${SFML_LIBRARIES} ${Boost_LIBRARIES})
