@@ -28,7 +28,7 @@ public:
         this->kind = kind;
     }
 
-    void render(Renderer &renderer)const;
+    void render(Renderer &renderer, bool dark)const;
 
     const std::string& getName() const {
         return name;

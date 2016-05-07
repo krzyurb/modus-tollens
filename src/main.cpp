@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <game/window/FieldsSelector.h>
 #include "WorldGenerator.h"
 #include "GameData.hpp"
 #include "GameTimer.h"
@@ -15,6 +16,8 @@ int main()
 
     Renderer renderer(window);
     World world = WorldGenerator::generate();
+    FieldSelector fieldSelector(&world);
+    renderer.setFieldSelector(&fieldSelector);
 
     int ticksPerDay = GameData::read<int>("game", "ticksPerDay");
     int tickDuration = GameData::read<int>("game", "tickDuration");
@@ -34,6 +37,10 @@ int main()
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
                 window.close();
+
+            if(event.type == sf::Event::MouseButtonPressed){
+                fieldSelector.findField(event.mouseButton.x, event.mouseButton.y);
+            }
         }
 
         // clear the window with black color

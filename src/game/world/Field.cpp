@@ -6,6 +6,6 @@ Field::Field(int x, int y, const std::shared_ptr<World>& world) : x(x), y(y), wo
 
 Field::~Field() {}
 
-void Field::render(Renderer &renderer)const {
-    renderer.drawField(*this);
+void Field::render(Renderer &renderer, bool dark)const {
+    renderer.drawField(*this, dark);
 }

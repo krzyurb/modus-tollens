@@ -30,7 +30,11 @@ set(SOURCE_FILES
     src/game/world/WorldGenerator.h
     src/game/timing/GameTimer.cpp
     src/game/timing/Observable.cpp
-    src/game/timing/Observable.cpp src/game/timing/Calendar.cpp src/game/timing/Calendar.h)
+    src/game/timing/Observable.cpp
+    src/game/timing/Calendar.cpp
+    src/game/timing/Calendar.h
+    src/game/window/FieldSelector.cpp
+    src/game/window/FieldsSelector.h)
 
 set(TEST_SOURCES
     test/GameData_test.cpp
