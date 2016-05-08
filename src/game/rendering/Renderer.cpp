@@ -38,30 +38,34 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
 
     sf::Texture texture;
     sf::Sprite  sprite;
-    sf::Text text;
+    sf::Texture calendarTexture;
+    sf::Sprite  calendarSprite;
+    sf::Text fieldPosition;
     sf::Text calendar;
-
-    text.setString(sf::String(*selectedField));
-    text.setFont(resourceHolder.getArial());
-
-    text.setCharacterSize(18);
-    text.setColor(sf::Color::White);
-    text.setPosition(sidebar.getX(), 10);
-
+    
     sprite.setTexture(resourceHolder.getField(selectedField->getKind() + "_preview"));
-    calendar.setString(sf::String(*sidebar.getCalendar()));
 
+    fieldPosition.setString(sf::String(*selectedField));
+    fieldPosition.setFont(resourceHolder.getArial());
+    fieldPosition.setCharacterSize(18);
+    fieldPosition.setColor(sf::Color::White);
+    fieldPosition.setPosition(sidebar.getX(), 60);
+
+    calendar.setString(sf::String(*sidebar.getCalendar()));
     calendar.setFont(resourceHolder.getArial());
     calendar.setCharacterSize(18);
     calendar.setColor(sf::Color::White);
-    calendar.setPosition(sidebar.getX(), 100);
+    calendar.setPosition(sidebar.getX() + 40, 10);
+    calendarSprite.setTexture(calendarTexture);
+    calendarSprite.setPosition(sidebar.getX(), 15);
 
     sprite.setTexture(texture);
-    sprite.setPosition(sidebar.getX(), 40);
+    sprite.setPosition(sidebar.getX(), 100);
 
     window.draw(sprite);
-    window.draw(text);
+    window.draw(fieldPosition);
     window.draw(calendar);
+    window.draw(calendarSprite);
 }
 
 void Renderer::setFieldSelector(FieldSelector * fieldSelector) {
