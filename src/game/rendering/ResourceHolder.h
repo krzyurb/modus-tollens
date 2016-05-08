@@ -2,7 +2,6 @@
 
 #include <map>
 #include <SFML/Graphics/Texture.hpp>
-#include <X11/X.h>
 #include <SFML/Graphics/Font.hpp>
 
 class ResourceHolder {
