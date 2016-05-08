@@ -51,7 +51,7 @@ find_package(SFML REQUIRED system window graphics network audio)
 include_directories(${SFML_INCLUDE_DIRS})
 
 find_package (Threads)
-find_package( Boost 1.60 COMPONENTS filesystem REQUIRED )
+find_package( Boost 1.40 COMPONENTS filesystem REQUIRED )
 include_directories( ${Boost_INCLUDE_DIR} )
 
 add_executable(modus_tollens ${SOURCE_FILES})
