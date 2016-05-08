@@ -11,6 +11,6 @@ void Calendar::update(Observable *o) {
 Calendar::operator std::string() {
     std::stringstream result;
     result << "Day: " << this->getDay() << "\n";
-    result << "Week: " << this->getDay() / 7;
+    result << "Week: " << (this->getDay() / 7) + 1;
     return result.str();
 }
