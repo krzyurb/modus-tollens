@@ -20,8 +20,6 @@ int main()
     std::shared_ptr<World> world = WorldGenerator::generate();
     FieldSelector fieldSelector(world.get());
     renderer.setFieldSelector(&fieldSelector);
-    
-    Sidebar sidebar;
 
     int ticksPerDay = GameData::read<int>("game", "ticksPerDay");
     int tickDuration = GameData::read<int>("game", "tickDuration");
@@ -30,6 +28,8 @@ int main()
     Calendar calendar(ticksPerDay);
     timer.addObserver(&calendar);
     timer.start();
+
+    Sidebar sidebar(&calendar);
 
     // run the program as long as the window is open
     while (window.isOpen())

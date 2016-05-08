@@ -11,4 +11,6 @@ public:
     }
 
     void update(Observable * o);
+
+    operator std::string();
 };

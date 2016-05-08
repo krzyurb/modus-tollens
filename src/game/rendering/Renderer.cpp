@@ -1,4 +1,5 @@
 #include <iostream>
+#include <game/timing/Calendar.h>
 #include "Field.h"
 #include "World.h"
 
@@ -38,20 +39,29 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
     sf::Texture texture;
     sf::Sprite  sprite;
     sf::Text text;
-    sf::Font font;
+    sf::Text calendar;
 
     text.setString(sf::String(*selectedField));
-
     text.setFont(resourceHolder.getArial());
+
     text.setCharacterSize(18);
     text.setColor(sf::Color::White);
     text.setPosition(sidebar.getX(), 10);
 
     sprite.setTexture(resourceHolder.getField(selectedField->getKind() + "_preview"));
+    calendar.setString(sf::String(*sidebar.getCalendar()));
+
+    calendar.setFont(resourceHolder.getArial());
+    calendar.setCharacterSize(18);
+    calendar.setColor(sf::Color::White);
+    calendar.setPosition(sidebar.getX(), 100);
+
+    sprite.setTexture(texture);
     sprite.setPosition(sidebar.getX(), 40);
 
     window.draw(sprite);
     window.draw(text);
+    window.draw(calendar);
 }
 
 void Renderer::setFieldSelector(FieldSelector * fieldSelector) {
