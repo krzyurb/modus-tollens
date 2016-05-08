@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <game/window/Sidebar.h>
-#include "game/window/FieldsSelector.h"
+#include "FieldsSelector.h"
 #include "World.h"
 #include "Field.h"
 
@@ -21,7 +21,7 @@ public:
 
     void drawSprite(const sf::Sprite &sprite);
 
-    void drawField(const Field &field, bool dark);
+    void drawField(const Field &field, bool dark = false);
 
     void drawWorld(const World &world);
 

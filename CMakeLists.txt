@@ -12,6 +12,7 @@ set(INCLUDES
     ${CMAKE_SOURCE_DIR}/src/game/
     ${CMAKE_SOURCE_DIR}/src/game/timing
     ${CMAKE_SOURCE_DIR}/src/game/rendering
+    ${CMAKE_SOURCE_DIR}/src/game/window
     ${CMAKE_SOURCE_DIR}/src/game/world
     ${CMAKE_SOURCE_DIR}/src/game/world/fields
     ${CMAKE_SOURCE_DIR}/src/game/world/materials
