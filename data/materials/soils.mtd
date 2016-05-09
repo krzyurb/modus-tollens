@@ -1,5 +1,14 @@
 {
+	"chernozem" : {
+		"fertility" : 90
+	},
 	"brown" : {
 		"fertility" : 70
+	},
+	"podzol" : {
+		"fertility" : 60
+	},
+	"peat" : {
+		"fertility" : 50
 	}
 }

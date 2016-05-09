@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <iostream>
 
-static const char * soilKinds[] = { "", "brown" };
+static const char * soilKinds[] = { "", "chernozem", "brown", "podzol", "peat" };
 
 class Soil {
 private:
