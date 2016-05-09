@@ -23,3 +23,7 @@ std::string Meadow::getDescription(){
     }
     return desc.str();
 }
+
+void Meadow::randomize(){
+
+}

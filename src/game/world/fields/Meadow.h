@@ -17,5 +17,7 @@ public:
     void setSoil(const std::string name);
 
     std::string getDescription();
+
+    void randomize();
 };
 

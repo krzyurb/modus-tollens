@@ -38,6 +38,8 @@ public:
 
     virtual std::string getDescription();
 
+    virtual void randomize();
+
     void setName(const std::string& name) {
         this->name = name;
     }

@@ -2,6 +2,10 @@
 
 #include <string>
 
+enum class SoilKind{
+    BROWN, SIZE
+};
+
 class Soil {
 private:
     std::string name;
@@ -27,4 +31,3 @@ public:
         this->name = name;
     }
 };
-

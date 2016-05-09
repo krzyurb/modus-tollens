@@ -19,3 +19,5 @@ Field::operator std::string() {
 std::string Field::getDescription() {
     return "No info";
 }
+
+void Field::randomize() {}

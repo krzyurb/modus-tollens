@@ -17,14 +17,14 @@ std::shared_ptr<World> WorldGenerator::generate(int width, int height) {
 
     for(int i = 0; i < width; i++){
         for(int j = 0; j < height; j++){
-            world->addField(fieldFactory.create(randomizeTileKind(), i, j));
+            Field *field = fieldFactory.create(randomizeTileKind(), i, j);
+            field->randomize();
+            world->addField(field);
         }
     }
 
     return world;
 }
-
-
 
 TileKind WorldGenerator::randomizeTileKind() {
     int enumSize = (int)TileKind::SIZE;
