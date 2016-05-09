@@ -55,7 +55,7 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
     calendar.setColor(sf::Color::White);
     calendar.setPosition(sidebar.getX() + 40, 10);
     calendarSprite.setPosition(sidebar.getX(), 15);
-
+    calendarSprite.setTexture(resourceHolder.getIcon("calendar"));
     sprite.setPosition(sidebar.getX(), 100);
 
     window.draw(sprite);
