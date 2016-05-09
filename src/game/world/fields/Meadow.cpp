@@ -7,7 +7,6 @@ Meadow::Meadow(int x, int y, const std::shared_ptr<World>& world) : Field(x,y, w
 
 void Meadow::setSoil(const std::string name) {
     int fertility    = GameData::read<int>("materials/soils", name + ".fertility");
-    std::string kind = GameData::read<std::string>("materials/soils", name + ".kind");
 
     this->soil = Soil(name);
     this->soil.setFertility(fertility);
@@ -16,8 +15,8 @@ void Meadow::setSoil(const std::string name) {
 std::string Meadow::getDescription(){
     std::stringstream desc;
     if(this->getSoil().getName() != ""){
-        desc << "Soil: " << this->getSoil().getName();
-        desc << "(" << this->getSoil().getFertility() << ")";
+        desc << "Soil: " << this->getSoil().getName() << "\n";
+        desc << "Fertility: " << this->getSoil().getFertility();
     } else {
         desc << "Barren field";
     }
@@ -25,5 +24,7 @@ std::string Meadow::getDescription(){
 }
 
 void Meadow::randomize(){
-
+    std::string soilKind = Soil::randomizeSoilKind();
+    if(soilKind != "")
+        setSoil(soilKind);
 }

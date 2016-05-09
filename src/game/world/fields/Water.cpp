@@ -8,7 +8,11 @@ std::string Water::getDescription(){
     std::stringstream desc;
     desc << "Depth: " << this->getDepth() << "\n";
     desc << "Salinity: " << this->salinity << "\n";
-    desc << "Temperature: " << this->temperature;
 
     return desc.str();
+}
+
+void Water::randomize(){
+    setDepth(rand() % 500);
+    setSalinity(rand() % 100);
 }

@@ -1,5 +1,6 @@
 #include "Soil.h"
 #include <string>
+#include <stdlib.h>
 
 Soil::Soil() {}
 

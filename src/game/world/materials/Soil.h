@@ -1,10 +1,10 @@
 #pragma once
 
 #include <string>
+#include <stdlib.h>
+#include <iostream>
 
-enum class SoilKind{
-    BROWN, SIZE
-};
+static const char * soilKinds[] = { "", "brown" };
 
 class Soil {
 private:
@@ -14,6 +14,11 @@ private:
 public:
     Soil();
     Soil(std::string name);
+
+    static std::string randomizeSoilKind() {
+        int size = sizeof(soilKinds) / 8;
+        return soilKinds[rand() % size];
+    }
 
     int getFertility() const {
         return fertility;

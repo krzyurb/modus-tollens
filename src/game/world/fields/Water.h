@@ -7,13 +7,14 @@
 class Water : public Field {
 private:
     int depth;
-    int temperature;
     int salinity;
 
 public:
     Water(int x, int y, const std::shared_ptr<World>& world);
 
     std::string getDescription();
+
+    void randomize();
 
     int getDepth() const {
         return depth;
@@ -29,13 +30,5 @@ public:
 
     void setSalinity(int salinity) {
         this->salinity = salinity;
-    }
-
-    int getTemperature() const {
-        return temperature;
-    }
-
-    void setTemperature(int temperature) {
-        this->temperature = temperature;
     }
 };
