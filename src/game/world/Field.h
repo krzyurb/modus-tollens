@@ -36,6 +36,8 @@ public:
         return name;
     }
 
+    virtual std::string getDescription();
+
     void setName(const std::string& name) {
         this->name = name;
     }

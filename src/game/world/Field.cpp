@@ -15,3 +15,7 @@ Field::operator std::string() {
     result << "(" << x << ", " << y << ") " << kind;
     return result.str();
 }
+
+std::string Field::getDescription() {
+    return "No info";
+}

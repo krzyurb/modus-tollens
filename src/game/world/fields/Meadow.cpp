@@ -12,3 +12,14 @@ void Meadow::setSoil(const std::string name) {
     this->soil = Soil(name);
     this->soil.setFertility(fertility);
 }
+
+std::string Meadow::getDescription(){
+    std::stringstream desc;
+    if(this->getSoil().getName() != ""){
+        desc << "Soil: " << this->getSoil().getName();
+        desc << "(" << this->getSoil().getFertility() << ")";
+    } else {
+        desc << "Barren field";
+    }
+    return desc.str();
+}

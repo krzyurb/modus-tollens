@@ -41,6 +41,7 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
     sf::Sprite  calendarSprite;
     sf::Text    fieldPosition;
     sf::Text    calendar;
+    sf::Text    fieldDesc;
 
     fieldPreview.setTexture(resourceHolder.getField(selectedField->getKind() + "_preview"));
     fieldIcon.setTexture(resourceHolder.getField(selectedField->getKind()));
@@ -51,6 +52,7 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
     fieldPosition.setColor(sf::Color::White);
     fieldPosition.setPosition(sidebar.getX() + 20, 60);
     fieldIcon.setPosition(sidebar.getX(), 64);
+
     calendar.setString(sf::String(*sidebar.getCalendar()));
     calendar.setFont(resourceHolder.getArial());
     calendar.setCharacterSize(18);
@@ -60,9 +62,16 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
     calendarSprite.setTexture(resourceHolder.getIcon("calendar"));
     fieldPreview.setPosition(sidebar.getX(), 100);
 
+    fieldDesc.setString(selectedField->getDescription());
+    fieldDesc.setFont(resourceHolder.getArial());
+    fieldDesc.setCharacterSize(18);
+    fieldDesc.setColor(sf::Color::White);
+    fieldDesc.setPosition(sidebar.getX(), 180);
+
     window.draw(fieldPreview);
     window.draw(fieldIcon);
     window.draw(fieldPosition);
+    window.draw(fieldDesc);
     window.draw(calendar);
     window.draw(calendarSprite);
 }
