@@ -18,9 +18,16 @@ protected:
 
 public:
     Field(int x, int y, const std::shared_ptr<World>& world);
+
     virtual ~Field();
 
     operator std::string();
+
+    void render(Renderer &renderer, bool dark = false)const;
+
+    virtual std::string getDescription();
+
+    virtual void randomize();
 
     const std::string& getKind() const {
         return kind;
@@ -30,15 +37,9 @@ public:
         this->kind = kind;
     }
 
-    void render(Renderer &renderer, bool dark = false)const;
-
     const std::string& getName() const {
         return name;
     }
-
-    virtual std::string getDescription();
-
-    virtual void randomize();
 
     void setName(const std::string& name) {
         this->name = name;
