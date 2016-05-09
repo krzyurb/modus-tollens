@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.3)
 project(modus_tollens)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -O2 -pthread")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -O2 -pthread -lboost_system")
 
 find_package (Threads)
 add_executable (main src/main.cpp)
@@ -51,7 +51,7 @@ find_package(SFML REQUIRED system window graphics network audio)
 include_directories(${SFML_INCLUDE_DIRS})
 
 find_package (Threads)
-find_package( Boost 1.40 COMPONENTS filesystem REQUIRED )
+find_package( Boost 1.60 COMPONENTS filesystem REQUIRED )
 include_directories( ${Boost_INCLUDE_DIR} )
 
 add_executable(modus_tollens ${SOURCE_FILES})
