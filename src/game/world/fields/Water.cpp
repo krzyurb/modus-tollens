@@ -1,5 +1,14 @@
+#include <sstream>
 #include "Water.h"
 
 Water::Water(int x, int y, const std::shared_ptr<World>& world) : Field(x,y, world) {
     this->kind = "water";
+}
+std::string Water::getDescription(){
+    std::stringstream desc;
+    desc << "Depth: " << this->getDepth() << "\n";
+    desc << "Salinity: " << this->salinity << "\n";
+    desc << "Temperature: " << this->temperature;
+
+    return desc.str();
 }

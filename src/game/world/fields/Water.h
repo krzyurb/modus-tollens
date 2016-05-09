@@ -13,6 +13,8 @@ private:
 public:
     Water(int x, int y, const std::shared_ptr<World>& world);
 
+    std::string getDescription();
+
     int getDepth() const {
         return depth;
     }
