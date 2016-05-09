@@ -36,19 +36,21 @@ void Renderer::drawWorld(const World &world){
 void Renderer::drawSidebar(const Sidebar &sidebar){
     Field *selectedField = fieldSelector->getSelectedField();
 
-    sf::Sprite  sprite;
+    sf::Sprite  fieldPreview;
+    sf::Sprite  fieldIcon;
     sf::Sprite  calendarSprite;
-    sf::Text fieldPosition;
-    sf::Text calendar;
+    sf::Text    fieldPosition;
+    sf::Text    calendar;
 
-    sprite.setTexture(resourceHolder.getField(selectedField->getKind() + "_preview"));
+    fieldPreview.setTexture(resourceHolder.getField(selectedField->getKind() + "_preview"));
+    fieldIcon.setTexture(resourceHolder.getField(selectedField->getKind()));
 
     fieldPosition.setString(sf::String(*selectedField));
     fieldPosition.setFont(resourceHolder.getArial());
     fieldPosition.setCharacterSize(18);
     fieldPosition.setColor(sf::Color::White);
-    fieldPosition.setPosition(sidebar.getX(), 60);
-
+    fieldPosition.setPosition(sidebar.getX() + 20, 60);
+    fieldIcon.setPosition(sidebar.getX(), 64);
     calendar.setString(sf::String(*sidebar.getCalendar()));
     calendar.setFont(resourceHolder.getArial());
     calendar.setCharacterSize(18);
@@ -56,9 +58,10 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
     calendar.setPosition(sidebar.getX() + 40, 10);
     calendarSprite.setPosition(sidebar.getX(), 15);
     calendarSprite.setTexture(resourceHolder.getIcon("calendar"));
-    sprite.setPosition(sidebar.getX(), 100);
+    fieldPreview.setPosition(sidebar.getX(), 100);
 
-    window.draw(sprite);
+    window.draw(fieldPreview);
+    window.draw(fieldIcon);
     window.draw(fieldPosition);
     window.draw(calendar);
     window.draw(calendarSprite);
