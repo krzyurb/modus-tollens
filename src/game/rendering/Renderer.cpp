@@ -36,13 +36,11 @@ void Renderer::drawWorld(const World &world){
 void Renderer::drawSidebar(const Sidebar &sidebar){
     Field *selectedField = fieldSelector->getSelectedField();
 
-    sf::Texture texture;
     sf::Sprite  sprite;
-    sf::Texture calendarTexture;
     sf::Sprite  calendarSprite;
     sf::Text fieldPosition;
     sf::Text calendar;
-    
+
     sprite.setTexture(resourceHolder.getField(selectedField->getKind() + "_preview"));
 
     fieldPosition.setString(sf::String(*selectedField));
@@ -56,10 +54,8 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
     calendar.setCharacterSize(18);
     calendar.setColor(sf::Color::White);
     calendar.setPosition(sidebar.getX() + 40, 10);
-    calendarSprite.setTexture(calendarTexture);
     calendarSprite.setPosition(sidebar.getX(), 15);
 
-    sprite.setTexture(texture);
     sprite.setPosition(sidebar.getX(), 100);
 
     window.draw(sprite);
