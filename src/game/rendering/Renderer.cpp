@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Calendar.h"
+#include "ButtonHandler.h"
 #include "Field.h"
 #include "World.h"
 
@@ -76,6 +77,11 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
     window.draw(calendarSprite);
 }
 
+void Renderer::drawButtons(const ButtonHandler buttonHandler){
+    for(auto &button: buttonHandler.getButtons()) {
+        button->render(*this);
+    }
+}
 
 void Renderer::drawButton(const Button &button) {
     sf::Text text;

@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <game/window/Sidebar.h>
 #include <game/window/Button.h>
+#include <game/window/ButtonHandler.h>
 #include "FieldsSelector.h"
 #include "World.h"
 #include "Field.h"
@@ -12,7 +13,7 @@ class Field;
 class World;
 class Sidebar;
 class FieldSelector;
-
+class ButtonHandler;
 class Button;
 
 class Renderer {
@@ -31,6 +32,8 @@ public:
     void drawWorld(const World &world);
 
     void drawSidebar(const Sidebar &sidebar);
+
+    void drawButtons(const ButtonHandler buttonHandler);
 
     void drawButton(const Button &button);
 

@@ -20,7 +20,7 @@ int main()
     Renderer renderer(window);
     std::shared_ptr<World> world = WorldGenerator::generate();
     FieldSelector fieldSelector(world.get());
-    ButtonHandler buttonHandler;
+    ButtonHandler buttonHandler(&fieldSelector);
 
     renderer.setFieldSelector(&fieldSelector);
 
@@ -33,10 +33,8 @@ int main()
     timer.start();
 
     Sidebar sidebar(&calendar);
+    buttonHandler.initializeButtons(sidebar.getX());
 
-    Button buildCity(sidebar.getX(), 300, "Build City");
-
-    buttonHandler.addButton(&buildCity);
     // run the program as long as the window is open
     while (window.isOpen())
     {
@@ -62,7 +60,7 @@ int main()
 
         // render sidebar
         sidebar.render(renderer);
-        buildCity.render(renderer);
+        buttonHandler.render(renderer);
         window.display();
     }
     return 0;
