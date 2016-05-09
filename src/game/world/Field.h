@@ -12,6 +12,7 @@ class World;
 class Field {
 protected:
     int x, y;
+    int id;
     std::string kind;
     std::string name;
     std::shared_ptr<World> world;
@@ -28,6 +29,8 @@ public:
     virtual std::string getDescription();
 
     virtual void randomize();
+
+    std::vector<Field*> getNeighbors();
 
     const std::string& getKind() const {
         return kind;
@@ -67,5 +70,13 @@ public:
 
     void setY(int y) {
         this->y = y;
+    }
+
+    void setId(int id){
+        this->id = id;
+    }
+
+    int getId(){
+        return id;
     }
 };

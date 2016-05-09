@@ -14,11 +14,12 @@ std::shared_ptr<World> WorldGenerator::generate() {
 std::shared_ptr<World> WorldGenerator::generate(int width, int height) {
     std::shared_ptr<World> world = std::make_shared<World>();
     FieldFactory fieldFactory(world);
-
+    int id = 0;
     for(int i = 0; i < width; i++){
         for(int j = 0; j < height; j++){
             Field *field = fieldFactory.create(randomizeTileKind(), i, j);
             field->randomize();
+            field->setId(id++);
             world->addField(field);
         }
     }
