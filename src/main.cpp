@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <game/window/FieldsSelector.h>
+#include <game/window/ButtonHandler.h>
 #include <game/window/Sidebar.h>
 
 #include "WorldGenerator.h"
@@ -19,6 +20,8 @@ int main()
     Renderer renderer(window);
     std::shared_ptr<World> world = WorldGenerator::generate();
     FieldSelector fieldSelector(world.get());
+    ButtonHandler buttonHandler;
+
     renderer.setFieldSelector(&fieldSelector);
 
     int ticksPerDay = GameData::read<int>("game", "ticksPerDay");
@@ -31,6 +34,9 @@ int main()
 
     Sidebar sidebar(&calendar);
 
+    Button buildCity(sidebar.getX(), 300, "Build City");
+
+    buttonHandler.addButton(&buildCity);
     // run the program as long as the window is open
     while (window.isOpen())
     {
@@ -44,6 +50,7 @@ int main()
 
             if(event.type == sf::Event::MouseButtonPressed){
                 fieldSelector.findField(event.mouseButton.x, event.mouseButton.y);
+                buttonHandler.handleClick(event.mouseButton.x, event.mouseButton.y);
             }
         }
 
@@ -55,7 +62,7 @@ int main()
 
         // render sidebar
         sidebar.render(renderer);
-
+        buildCity.render(renderer);
         window.display();
     }
     return 0;
