@@ -1,0 +1,8 @@
+{
+	"birch" : {
+		"endurance" : 30
+	},
+	"oak" : {
+		"endurance" : 80
+	}
+}
