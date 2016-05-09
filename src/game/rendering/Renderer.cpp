@@ -76,6 +76,17 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
     window.draw(calendarSprite);
 }
 
+
+void Renderer::drawButton(const Button &button) {
+    sf::Text text;
+    text.setString(button.getName());
+    text.setFont(resourceHolder.getArial());
+    text.setCharacterSize(18);
+    text.setColor(sf::Color::Green);
+    text.setPosition(button.getX(), button.getY());
+    window.draw(text);
+}
+
 void Renderer::setFieldSelector(FieldSelector * fieldSelector) {
     this->fieldSelector = fieldSelector;
 }
