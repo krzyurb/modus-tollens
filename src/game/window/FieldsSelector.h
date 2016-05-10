@@ -13,7 +13,7 @@ public:
 
     bool inRange(int x, int y);
 
-    Field *getSelectedField() const {
+    Field *getSelectedField() {
         return selectedField;
     }
 

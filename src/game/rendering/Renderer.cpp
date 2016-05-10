@@ -25,10 +25,10 @@ void Renderer::drawField(const Field &field, bool dark){
     window.draw(sprite);
 }
 
-void Renderer::drawWorld(const World &world){
+void Renderer::drawWorld(World &world){
     Field *selectedField = fieldSelector->getSelectedField();
 
-    for(auto &field : world.getFields()) {
+    for(auto field : world.getFields()) {
         field->render(*this);
         selectedField->render(*this, true);
     }

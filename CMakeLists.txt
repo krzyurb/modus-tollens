@@ -48,7 +48,7 @@ set(SOURCE_FILES
     src/game/window/ButtonHandler.cpp
     src/game/window/ButtonHandler.h
     src/game/window/listeners/BuildCity.cpp
-    src/game/window/listeners/BuildCity.h)
+    src/game/window/listeners/BuildCity.h src/game/world/fields/City.cpp src/game/world/fields/City.h)
 
 set(TEST_SOURCES
     test/GameData_test.cpp

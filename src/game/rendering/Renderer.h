@@ -29,7 +29,7 @@ public:
 
     void drawField(const Field &field, bool dark = false);
 
-    void drawWorld(const World &world);
+    void drawWorld(World &world);
 
     void drawSidebar(const Sidebar &sidebar);
 

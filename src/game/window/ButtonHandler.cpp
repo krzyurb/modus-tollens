@@ -24,7 +24,7 @@ void ButtonHandler::initializeButtons(int x){
     int y = 300;
 
     Button    * buildCity         = new Button(x, y, "Build City");
-    BuildCity * buildCityListener = new BuildCity();
+    BuildCity * buildCityListener = new BuildCity(fieldSelector->getSelectedField());
     buildCity->setListener(buildCityListener);
     addButton(buildCity);
 }

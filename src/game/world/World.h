@@ -14,7 +14,7 @@ public:
     ~World();
     void render(Renderer &renderer);
 
-    const std::vector<Field*> &getFields() const {
+    const std::vector<Field*> getFields() {
         return fields;
     }
 
