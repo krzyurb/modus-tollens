@@ -48,7 +48,7 @@ public:
         this->name = name;
     }
 
-    const std::shared_ptr<World>& getWorld() const {
+    std::shared_ptr<World>& getWorld() {
         return world;
     }
 

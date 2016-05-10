@@ -1,17 +1,19 @@
 #pragma once
 
 #include <game/window/ButtonListener.h>
-#include <game/world/Field.h>
+
+class FieldSelector;
 
 class BuildCity : public ButtonListener {
 public:
-    BuildCity(Field * field);
+    BuildCity(FieldSelector * fieldSelector);
+
     void perform();
 
-    Field *getField() const {
-        return field;
+    FieldSelector *getFieldSelector() const {
+        return fieldSelector;
     }
 
 private:
-    Field * field;
+    FieldSelector * fieldSelector;
 };

@@ -22,6 +22,10 @@ public:
         fields.push_back(field);
     }
 
+    void setField(int id, Field * field){
+        fields[id] = field;
+    }
+
 private:
     std::vector<Field*> fields;
 };
