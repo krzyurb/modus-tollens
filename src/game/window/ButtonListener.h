@@ -3,5 +3,5 @@
 class ButtonListener {
 
 public:
-    void perform();
+    virtual void perform();
 };

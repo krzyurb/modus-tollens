@@ -9,7 +9,7 @@ class Button {
 private:
     int x,y;
     std::string name;
-    ButtonListener listener;
+    ButtonListener * listener;
 
 public:
 
@@ -19,11 +19,11 @@ public:
 
     void render(Renderer &renderer, bool dark = false)const;
 
-    const ButtonListener &getListener() const {
+    const ButtonListener *getListener() const {
         return listener;
     }
 
-    void setListener(const ButtonListener &listener) {
+    void setListener(ButtonListener * listener) {
         Button::listener = listener;
     }
 

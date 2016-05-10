@@ -38,7 +38,17 @@ set(SOURCE_FILES
     src/game/window/FieldsSelector.h
     src/game/window/Sidebar.cpp
     src/game/window/Sidebar.h
-    src/game/rendering/ResourceHolder.cpp src/game/world/fields/Forest.cpp src/game/world/fields/Forest.h src/game/world/materials/Tree.cpp src/game/world/materials/Tree.h src/game/window/Button.cpp src/game/window/Button.h src/game/window/ButtonListener.cpp src/game/window/ButtonListener.h src/game/window/ButtonHandler.cpp src/game/window/ButtonHandler.h)
+    src/game/rendering/ResourceHolder.cpp
+    src/game/world/fields/Forest.cpp
+    src/game/world/fields/Forest.h
+    src/game/world/materials/Tree.cpp
+    src/game/world/materials/Tree.h
+    src/game/window/Button.cpp src/game/window/Button.h
+    src/game/window/ButtonListener.cpp src/game/window/ButtonListener.h
+    src/game/window/ButtonHandler.cpp
+    src/game/window/ButtonHandler.h
+    src/game/window/listeners/BuildCity.cpp
+    src/game/window/listeners/BuildCity.h)
 
 set(TEST_SOURCES
     test/GameData_test.cpp
