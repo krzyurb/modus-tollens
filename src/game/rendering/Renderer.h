@@ -33,9 +33,14 @@ public:
 
     void drawSidebar(const Sidebar &sidebar);
 
-    void drawButtons(const ButtonHandler buttonHandler);
+    void drawButtons(const ButtonHandler &buttonHandler);
 
     void drawButton(const Button &button);
 
     void setFieldSelector(FieldSelector * fieldSelector);
+
+
+    FieldSelector *getFieldSelector() const {
+        return fieldSelector;
+    }
 };

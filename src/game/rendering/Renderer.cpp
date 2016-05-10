@@ -77,7 +77,7 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
     window.draw(calendarSprite);
 }
 
-void Renderer::drawButtons(const ButtonHandler buttonHandler){
+void Renderer::drawButtons(const ButtonHandler &buttonHandler){
     for(auto &button: buttonHandler.getButtons()) {
         button->render(*this);
     }

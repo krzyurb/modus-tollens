@@ -7,5 +7,7 @@ void Button::click() {
 }
 
 void Button::render(Renderer &renderer, bool dark) const {
-    renderer.drawButton(*this);
+    std::string fieldKind = renderer.getFieldSelector()->getSelectedField()->getKind();
+    if(fieldKind != "water")
+        renderer.drawButton(*this);
 }
