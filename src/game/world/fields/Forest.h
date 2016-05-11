@@ -9,7 +9,7 @@ private:
     Tree tree;
 
 public:
-    Forest(int x, int y, const std::shared_ptr<World> &world);
+    Forest(int x, int y, World * world);
 
     std::string getDescription();
 

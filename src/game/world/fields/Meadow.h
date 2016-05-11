@@ -10,7 +10,7 @@ private:
     Soil soil;
 
 public:
-    Meadow(int x, int y, const std::shared_ptr<World>& world);
+    Meadow(int x, int y, World * world);
 
     Soil& getSoil() { return soil; }
 

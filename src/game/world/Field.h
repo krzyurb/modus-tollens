@@ -15,11 +15,10 @@ protected:
     int id;
     std::string kind;
     std::string name;
-    std::shared_ptr<World> world;
+    World * world;
 
 public:
-    Field(int x, int y, const std::shared_ptr<World>& world);
-
+    Field(int x, int y, World * world);
     virtual ~Field();
 
     operator std::string();
@@ -48,11 +47,11 @@ public:
         this->name = name;
     }
 
-    std::shared_ptr<World>& getWorld() {
+    World * getWorld() {
         return world;
     }
 
-    void setWorld(const std::shared_ptr<World>& world) {
+    void setWorld(World * world) {
         this->world = world;
     }
 

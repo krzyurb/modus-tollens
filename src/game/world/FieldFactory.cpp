@@ -4,7 +4,7 @@
 #include "Water.h"
 #include "Forest.h"
 
-FieldFactory::FieldFactory(std::shared_ptr<World> & world) : world(world) {
+FieldFactory::FieldFactory(World * world) : world(world) {
     tileSize = GameData::read<int>("world", "tileSize");
 }
 

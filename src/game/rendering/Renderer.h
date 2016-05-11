@@ -4,7 +4,7 @@
 #include "Sidebar.h"
 #include "Button.h"
 #include "ButtonHandler.h"
-#include "FieldsSelector.h"
+#include "FieldSelector.h"
 #include "World.h"
 #include "Field.h"
 #include "ResourceHolder.h"

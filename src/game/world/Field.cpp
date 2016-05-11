@@ -3,7 +3,7 @@
 #include <GameData.hpp>
 #include "Field.h"
 
-Field::Field(int x, int y, const std::shared_ptr<World>& world) : x(x), y(y), world(world) {}
+Field::Field(int x, int y, World * world) : x(x), y(y), world(world) {}
 
 Field::~Field() {}
 

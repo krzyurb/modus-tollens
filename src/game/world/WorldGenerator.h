@@ -8,8 +8,8 @@ enum class TileKind{
 
 class WorldGenerator {
 public:
-    static std::shared_ptr<World> generate();
-    static std::shared_ptr<World> generate(int width, int height);
+    static std::unique_ptr<World> generate();
+    static std::unique_ptr<World> generate(int width, int height);
 private:
     static TileKind randomizeTileKind();
 };

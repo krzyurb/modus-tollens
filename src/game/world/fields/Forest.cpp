@@ -1,7 +1,7 @@
 #include <GameData.hpp>
 #include "Forest.h"
 
-Forest::Forest(int x, int y, const std::shared_ptr<World> &world) : Field(x, y, world) {
+Forest::Forest(int x, int y, World * world) : Field(x, y, world) {
     this->kind = "forest";
 }
 

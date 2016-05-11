@@ -10,7 +10,7 @@ private:
     int salinity;
 
 public:
-    Water(int x, int y, const std::shared_ptr<World>& world);
+    Water(int x, int y, World * world);
 
     std::string getDescription();
 

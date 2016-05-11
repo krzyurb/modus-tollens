@@ -6,8 +6,8 @@
 class FieldFactory {
 private:
     size_t tileSize;
-    std::shared_ptr<World> world;
+    World * world;
 public:
-    FieldFactory(std::shared_ptr<World> & world);
+    FieldFactory(World * world);
     Field * create(TileKind kind, int x, int y);
 };

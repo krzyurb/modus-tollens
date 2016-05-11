@@ -1,7 +1,7 @@
 #include "Meadow.h"
 #include "GameData.hpp"
 
-Meadow::Meadow(int x, int y, const std::shared_ptr<World>& world) : Field(x,y, world) {
+Meadow::Meadow(int x, int y, World * world) : Field(x,y, world) {
     this->kind = "meadow";
 }
 

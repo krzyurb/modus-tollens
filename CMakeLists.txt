@@ -28,14 +28,11 @@ set(SOURCE_FILES
     src/game/rendering/Renderer.cpp
     src/game/world/FieldFactory.cpp
     src/game/world/WorldGenerator.cpp
-    src/game/world/WorldGenerator.h
     src/game/timing/GameTimer.cpp
     src/game/timing/Observable.cpp
     src/game/timing/Observable.cpp
     src/game/timing/Calendar.cpp
-    src/game/timing/Calendar.h
     src/game/window/FieldSelector.cpp
-    src/game/window/FieldsSelector.h
     src/game/window/Sidebar.cpp
     src/game/window/Sidebar.h
     src/game/rendering/ResourceHolder.cpp
@@ -52,7 +49,7 @@ set(SOURCE_FILES
     src/game/window/listeners/BuildCity.cpp
     src/game/window/listeners/BuildCity.h
     src/game/world/fields/City.cpp
-    src/game/world/fields/City.h)
+    src/game/ModusTollens.cpp)
 
 set(TEST_SOURCES
     test/GameData_test.cpp
