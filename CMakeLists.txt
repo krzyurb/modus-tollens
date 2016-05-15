@@ -55,7 +55,9 @@ set(SOURCE_FILES
     src/game/rendering/map_modes/FertilityMode.cpp
     src/game/rendering/map_modes/FertilityMode.h
     src/game/rendering/map_modes/TreesMode.cpp
-    src/game/rendering/map_modes/TreesMode.h)
+    src/game/rendering/map_modes/TreesMode.h
+    src/game/world/Building.cpp
+    src/game/world/Building.h)
 
 set(TEST_SOURCES
     test/GameData_test.cpp
