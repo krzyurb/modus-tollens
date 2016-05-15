@@ -145,6 +145,18 @@ void Renderer::drawPlayer(const Player &player) {
 
     window.draw(icon);
     window.draw(amount);
+
+    icon.setTexture(resourceHolder.getIcon("food"));
+    icon.setPosition(stockWidth*3, bottomBar);
+
+    ss.str(std::string());
+    ss.clear();
+    ss << stock.food << '\n';
+    amount.setString(ss.str());
+    amount.setPosition(stockWidth*3 + iconWidth + padding, bottomBar);
+
+    window.draw(icon);
+    window.draw(amount);
 }
 
 void Renderer::setFieldSelector(FieldSelector * fieldSelector) {
