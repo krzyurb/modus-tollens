@@ -99,24 +99,42 @@ void Renderer::drawPlayer(const Player &player) {
     const Stock &stock = player.getStock();
 
     int worldHeight = GameData::read<int>("world", "height");
+    int worldWidth = GameData::read<int>("world", "width");
     int tileSize = GameData::read<int>("world", "tileSize");
     int bottomBar = worldHeight * tileSize + 5;
+    size_t stockWidth = worldWidth * tileSize / 4;
+    const size_t padding = 10;
 
     std::stringstream ss;
 
-    sf::Sprite wood(resourceHolder.getIcon("wood"));
-    wood.setPosition(10, bottomBar);
-    wood.scale(sf::Vector2f(0.3f, 0.3f));
+    sf::Sprite icon(resourceHolder.getIcon("wood"));
+    icon.setPosition(padding, bottomBar);
+    icon.scale(sf::Vector2f(0.3f, 0.3f));
+    size_t iconWidth = icon.getGlobalBounds().width;
 
     ss << std::setprecision(2) << stock.wood;
-    sf::Text woodAmount;
-    woodAmount.setString(ss.str());
-    woodAmount.setPosition(20 + wood.getGlobalBounds().width, bottomBar);
-    woodAmount.setFont(resourceHolder.getArial());
-    woodAmount.setColor(sf::Color::White);
+    sf::Text amount;
+    amount.setString(ss.str());
+    amount.setPosition(iconWidth + padding*2, bottomBar);
+    amount.setFont(resourceHolder.getArial());
+    amount.setColor(sf::Color::White);
 
-    window.draw(wood);
-    window.draw(woodAmount);
+    window.draw(icon);
+    window.draw(amount);
+
+    icon.setTexture(resourceHolder.getIcon("stone"));
+    icon.setPosition(stockWidth, bottomBar);
+
+    ss.str(std::string());
+    ss.clear();
+    ss << stock.stone << '\n';
+    amount.setString(ss.str());
+    amount.setPosition(stockWidth + iconWidth + padding, bottomBar);
+
+    window.draw(icon);
+    window.draw(amount);
+
+
 }
 
 void Renderer::setFieldSelector(FieldSelector * fieldSelector) {
