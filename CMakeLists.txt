@@ -10,6 +10,7 @@ target_link_libraries (main ${CMAKE_THREAD_LIBS_INIT})
 set(INCLUDES
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_SOURCE_DIR}/src/game/
+    ${CMAKE_SOURCE_DIR}/src/game/player
     ${CMAKE_SOURCE_DIR}/src/game/timing
     ${CMAKE_SOURCE_DIR}/src/game/rendering
     ${CMAKE_SOURCE_DIR}/src/game/window
@@ -20,6 +21,8 @@ set(INCLUDES
 
 set(SOURCE_FILES
     src/main.cpp
+    src/game/player/Player.cpp
+    src/game/player/Stock.cpp
     src/game/world/Field.cpp
     src/game/world/World.cpp
     src/game/world/fields/Meadow.cpp
