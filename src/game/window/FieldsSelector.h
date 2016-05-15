@@ -18,7 +18,7 @@ public:
     }
 
     void setSelectedField(Field *selectedField) {
-        FieldSelector::selectedField = selectedField;
+        this->selectedField = selectedField;
     }
 
 private:

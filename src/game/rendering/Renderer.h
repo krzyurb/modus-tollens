@@ -1,9 +1,9 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <game/window/Sidebar.h>
-#include <game/window/Button.h>
-#include <game/window/ButtonHandler.h>
+#include "Sidebar.h"
+#include "Button.h"
+#include "ButtonHandler.h"
 #include "FieldsSelector.h"
 #include "World.h"
 #include "Field.h"
