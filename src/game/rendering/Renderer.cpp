@@ -67,7 +67,7 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
     fieldDesc.setFont(resourceHolder.getArial());
     fieldDesc.setCharacterSize(18);
     fieldDesc.setColor(sf::Color::White);
-    fieldDesc.setPosition(sidebar.getX(), 180);
+    fieldDesc.setPosition(sidebar.getX(), 200);
 
     window.draw(fieldPreview);
     window.draw(fieldIcon);
