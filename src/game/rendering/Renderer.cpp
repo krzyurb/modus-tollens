@@ -112,7 +112,7 @@ void Renderer::drawPlayer(const Player &player) {
     icon.scale(sf::Vector2f(0.3f, 0.3f));
     size_t iconWidth = icon.getGlobalBounds().width;
 
-    ss << std::setprecision(2) << stock.wood;
+    ss << std::fixed << std::setprecision(2) << stock.wood;
     sf::Text amount;
     amount.setString(ss.str());
     amount.setPosition(iconWidth + padding*2, bottomBar);
