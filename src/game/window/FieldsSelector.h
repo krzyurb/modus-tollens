@@ -17,6 +17,10 @@ public:
         return selectedField;
     }
 
+    void setSelectedField(Field *selectedField) {
+        FieldSelector::selectedField = selectedField;
+    }
+
 private:
     World *world;
     Field *selectedField;
