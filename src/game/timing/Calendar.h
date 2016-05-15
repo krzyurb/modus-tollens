@@ -1,4 +1,5 @@
 #include "Observer.h"
+#include <string>
 
 class Calendar : public Observer {
 private:
