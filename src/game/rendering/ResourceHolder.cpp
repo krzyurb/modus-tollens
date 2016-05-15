@@ -13,12 +13,17 @@ ResourceHolder::ResourceHolder() {
         fields[p.stem().string()] = texture;
     });
 
-    boost::filesystem::path resourcesIcons("resources/icons");
-    std::for_each(directory_iterator(resourcesIcons), directory_iterator(), [&](const path & p){
+    auto loadIcon = [&](const path & p){
         sf::Texture texture;
         texture.loadFromFile(p.string());
         icons[p.stem().string()] = texture;
-    });
+    };
+
+    path resourcesIcons("resources/icons");
+    std::for_each(directory_iterator(resourcesIcons), directory_iterator(), loadIcon);
+
+    path stockIcons("resources/stock");
+    std::for_each(directory_iterator(stockIcons), directory_iterator(), loadIcon);
 
     arial.loadFromFile("resources/arial.ttf");
 }

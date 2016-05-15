@@ -1,4 +1,6 @@
 #include <iostream>
+#include <GameData.hpp>
+#include "Player.h"
 #include "Calendar.h"
 #include "ButtonHandler.h"
 #include "Field.h"
@@ -91,6 +93,19 @@ void Renderer::drawButton(const Button &button) {
     text.setColor(sf::Color::Green);
     text.setPosition(button.getX(), button.getY());
     window.draw(text);
+}
+
+void Renderer::drawPlayer(const Player &player) {
+    const Stock &stock = player.getStock();
+
+    int worldHeight = GameData::read<int>("world", "height");
+    int tileSize = GameData::read<int>("world", "tileSize");
+    int bottomBar = worldHeight * tileSize + 5;
+
+    sf::Sprite wood(resourceHolder.getIcon("wood"));
+    wood.setPosition(10, bottomBar);
+    wood.scale(sf::Vector2f(0.3f, 0.3f));
+    window.draw(wood);
 }
 
 void Renderer::setFieldSelector(FieldSelector * fieldSelector) {

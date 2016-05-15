@@ -42,6 +42,7 @@ void ModusTollens::loop() {
         world->render(renderer);
         buttonHandler->render(renderer);
         sidebar->render(renderer);
+        player.render(renderer);
 
         window.display();
     }

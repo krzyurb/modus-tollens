@@ -18,6 +18,7 @@ private:
     std::unique_ptr<Sidebar> sidebar;
     std::unique_ptr<ButtonHandler> buttonHandler;
     Renderer renderer;
+    Player player;
 
 public:
     ModusTollens(sf::RenderWindow & window);
