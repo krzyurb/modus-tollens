@@ -102,10 +102,21 @@ void Renderer::drawPlayer(const Player &player) {
     int tileSize = GameData::read<int>("world", "tileSize");
     int bottomBar = worldHeight * tileSize + 5;
 
+    std::stringstream ss;
+
     sf::Sprite wood(resourceHolder.getIcon("wood"));
     wood.setPosition(10, bottomBar);
     wood.scale(sf::Vector2f(0.3f, 0.3f));
+
+    ss << std::setprecision(2) << stock.wood;
+    sf::Text woodAmount;
+    woodAmount.setString(ss.str());
+    woodAmount.setPosition(20 + wood.getGlobalBounds().width, bottomBar);
+    woodAmount.setFont(resourceHolder.getArial());
+    woodAmount.setColor(sf::Color::White);
+
     window.draw(wood);
+    window.draw(woodAmount);
 }
 
 void Renderer::setFieldSelector(FieldSelector * fieldSelector) {

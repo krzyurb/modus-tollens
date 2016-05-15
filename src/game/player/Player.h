@@ -13,6 +13,7 @@ private:
     World * world;
     Stock stock;
 public:
+    Player();
     const Stock &getStock() const;
     void render(Renderer & renderer);
 };
