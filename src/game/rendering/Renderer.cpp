@@ -134,7 +134,17 @@ void Renderer::drawPlayer(const Player &player) {
     window.draw(icon);
     window.draw(amount);
 
+    icon.setTexture(resourceHolder.getIcon("tools"));
+    icon.setPosition(stockWidth*2, bottomBar);
 
+    ss.str(std::string());
+    ss.clear();
+    ss << stock.tools << '\n';
+    amount.setString(ss.str());
+    amount.setPosition(stockWidth*2 + iconWidth + padding, bottomBar);
+
+    window.draw(icon);
+    window.draw(amount);
 }
 
 void Renderer::setFieldSelector(FieldSelector * fieldSelector) {
