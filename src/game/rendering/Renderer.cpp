@@ -2,11 +2,10 @@
 #include <GameData.hpp>
 #include "Player.h"
 #include "Calendar.h"
-#include "ButtonHandler.h"
-#include "Field.h"
-#include "World.h"
 
-Renderer::Renderer(sf::RenderWindow & window):window(window) {}
+Renderer::Renderer(sf::RenderWindow & window)
+    :window(window), textFont(resourceHolder.getFont("arial")) {
+}
 
 void Renderer::drawSprite(const sf::Sprite &sprite) {
     window.draw(sprite);
@@ -50,14 +49,14 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
     fieldIcon.setTexture(resourceHolder.getField(selectedField->getKind()));
 
     fieldPosition.setString(sf::String(*selectedField));
-    fieldPosition.setFont(resourceHolder.getFont("arial"));
+    fieldPosition.setFont(textFont);
     fieldPosition.setCharacterSize(18);
     fieldPosition.setColor(sf::Color::White);
     fieldPosition.setPosition(sidebar.getX() + 20, 60);
     fieldIcon.setPosition(sidebar.getX(), 64);
 
     calendar.setString(sf::String(*sidebar.getCalendar()));
-    calendar.setFont(resourceHolder.getFont("arial"));
+    calendar.setFont(textFont);
     calendar.setCharacterSize(18);
     calendar.setColor(sf::Color::White);
     calendar.setPosition(sidebar.getX() + 40, 10);
@@ -66,7 +65,7 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
     fieldPreview.setPosition(sidebar.getX(), 100);
 
     fieldDesc.setString(selectedField->getDescription());
-    fieldDesc.setFont(resourceHolder.getFont("arial"));
+    fieldDesc.setFont(textFont);
     fieldDesc.setCharacterSize(18);
     fieldDesc.setColor(sf::Color::White);
     fieldDesc.setPosition(sidebar.getX(), 200);
@@ -88,7 +87,7 @@ void Renderer::drawButtons(const ButtonHandler &buttonHandler){
 void Renderer::drawButton(const Button &button) {
     sf::Text text;
     text.setString(button.getName());
-    text.setFont(resourceHolder.getFont("arial"));
+    text.setFont(textFont);
     text.setCharacterSize(18);
     text.setColor(sf::Color::Green);
     text.setPosition(button.getX(), button.getY());
@@ -116,7 +115,7 @@ void Renderer::drawPlayer(const Player &player) {
     sf::Text amount;
     amount.setString(ss.str());
     amount.setPosition(iconWidth + padding*2, bottomBar);
-    amount.setFont(resourceHolder.getFont("arial"));
+    amount.setFont(textFont);
     amount.setColor(sf::Color::White);
 
     window.draw(icon);

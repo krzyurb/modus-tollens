@@ -23,6 +23,7 @@ private:
     ResourceHolder resourceHolder;
     sf::RenderWindow & window;
     FieldSelector * fieldSelector;
+    sf::Font &textFont;
 
 public:
     Renderer(sf::RenderWindow & window);
