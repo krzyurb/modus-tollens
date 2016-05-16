@@ -50,14 +50,14 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
     fieldIcon.setTexture(resourceHolder.getField(selectedField->getKind()));
 
     fieldPosition.setString(sf::String(*selectedField));
-    fieldPosition.setFont(resourceHolder.getArial());
+    fieldPosition.setFont(resourceHolder.getFont("arial"));
     fieldPosition.setCharacterSize(18);
     fieldPosition.setColor(sf::Color::White);
     fieldPosition.setPosition(sidebar.getX() + 20, 60);
     fieldIcon.setPosition(sidebar.getX(), 64);
 
     calendar.setString(sf::String(*sidebar.getCalendar()));
-    calendar.setFont(resourceHolder.getArial());
+    calendar.setFont(resourceHolder.getFont("arial"));
     calendar.setCharacterSize(18);
     calendar.setColor(sf::Color::White);
     calendar.setPosition(sidebar.getX() + 40, 10);
@@ -66,7 +66,7 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
     fieldPreview.setPosition(sidebar.getX(), 100);
 
     fieldDesc.setString(selectedField->getDescription());
-    fieldDesc.setFont(resourceHolder.getArial());
+    fieldDesc.setFont(resourceHolder.getFont("arial"));
     fieldDesc.setCharacterSize(18);
     fieldDesc.setColor(sf::Color::White);
     fieldDesc.setPosition(sidebar.getX(), 200);
@@ -88,7 +88,7 @@ void Renderer::drawButtons(const ButtonHandler &buttonHandler){
 void Renderer::drawButton(const Button &button) {
     sf::Text text;
     text.setString(button.getName());
-    text.setFont(resourceHolder.getArial());
+    text.setFont(resourceHolder.getFont("arial"));
     text.setCharacterSize(18);
     text.setColor(sf::Color::Green);
     text.setPosition(button.getX(), button.getY());
@@ -116,7 +116,7 @@ void Renderer::drawPlayer(const Player &player) {
     sf::Text amount;
     amount.setString(ss.str());
     amount.setPosition(iconWidth + padding*2, bottomBar);
-    amount.setFont(resourceHolder.getArial());
+    amount.setFont(resourceHolder.getFont("arial"));
     amount.setColor(sf::Color::White);
 
     window.draw(icon);

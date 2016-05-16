@@ -25,7 +25,12 @@ ResourceHolder::ResourceHolder() {
     path stockIcons("resources/stock");
     std::for_each(directory_iterator(stockIcons), directory_iterator(), loadIcon);
 
-    arial.loadFromFile("resources/arial.ttf");
+    path resourcesFonts("resources/fonts");
+    std::for_each(directory_iterator(resourcesFonts), directory_iterator(), [&](const path & p){
+        sf::Font font;
+        font.loadFromFile(p.string());
+        fonts[p.stem().string()] = font;
+    });
 }
 
 sf::Texture &ResourceHolder::getField(std::string name) {
@@ -36,6 +41,6 @@ sf::Texture &ResourceHolder::getIcon(std::string name) {
     return icons[name];
 }
 
-const sf::Font &ResourceHolder::getArial() {
-    return arial;
+sf::Font &ResourceHolder::getFont(const std::string &name) {
+    return fonts[name];
 }

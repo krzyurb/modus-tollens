@@ -8,10 +8,10 @@ class ResourceHolder {
 private:
     std::map<std::string, sf::Texture> fields;
     std::map<std::string, sf::Texture> icons;
-    sf::Font arial;
+    std::map<std::string, sf::Font> fonts;
 public:
     ResourceHolder();
     sf::Texture &getField(std::string name);
     sf::Texture &getIcon(std::string name);
-    const sf::Font &getArial();
+    sf::Font &getFont(const std::string & name);
 };
