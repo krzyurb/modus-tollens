@@ -19,7 +19,7 @@ public:
         return kind;
     }
 
-    void produce() {}
+    virtual void produce() {}
 
 protected:
     Field * field;

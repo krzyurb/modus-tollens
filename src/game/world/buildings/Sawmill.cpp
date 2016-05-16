@@ -9,17 +9,19 @@ void Sawmill::produce() {
         Forest * field = (Forest *) getField();
 
         if(field->getTreesCount() > 0){
-            int endurance = field->getTree().getEndurance();
+            int endurance = field->getTree().getEndurance() / 10;
             int wood = (endurance / 2) + (std::rand() % ( endurance - (endurance / 2) + 1 ));
 
-            int extraWood = 0;
+            bool deepForest = true;
             for(auto & neighbor: getField()->getNeighbors()) {
-                if(neighbor->getKind() == "forest")
-                    extraWood++;
+                if(neighbor->getKind() != "forest")
+                    deepForest = false;
             }
 
-            std::cout << "Used: "   << endurance / 10   << " tools";
-            std::cout << "Gained: " << wood + extraWood << " wood";
+            if(deepForest) { wood += 4; }
+
+            std::cout << "Used: "   << endurance << " tools";
+            std::cout << "Gained: " << wood << " wood";
         }
     }
 }
