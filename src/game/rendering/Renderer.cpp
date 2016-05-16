@@ -105,57 +105,30 @@ void Renderer::drawPlayer(const Player &player) {
     const size_t padding = 10;
 
     std::stringstream ss;
-
-    sf::Sprite icon(resourceHolder.getIcon("wood"));
+    ss << std::fixed << std::setprecision(2);
+    sf::Sprite icon;
     icon.setPosition(padding, bottomBar);
     icon.scale(sf::Vector2f(0.3f, 0.3f));
-    size_t iconWidth = icon.getGlobalBounds().width;
-
-    ss << std::fixed << std::setprecision(2) << stock.wood;
     sf::Text amount;
-    amount.setString(ss.str());
-    amount.setPosition(iconWidth + padding*2, bottomBar);
     amount.setFont(textFont);
-    amount.setColor(sf::Color::White);
 
-    window.draw(icon);
-    window.draw(amount);
+    const std::string stockNames[] = {"wood", "stone", "tools", "food"};
+    std::vector<double> v { stock.wood, stock.stone, stock.tools, stock.food };
 
-    icon.setTexture(resourceHolder.getIcon("stone"));
-    icon.setPosition(stockWidth, bottomBar);
+    for(size_t i = 0; i < 4; ++i) {
+        icon.setTexture(resourceHolder.getIcon(stockNames[i]));
+        icon.setPosition(stockWidth*i + padding, bottomBar);
+        size_t iconWidth = icon.getGlobalBounds().width;
 
-    ss.str(std::string());
-    ss.clear();
-    ss << stock.stone << '\n';
-    amount.setString(ss.str());
-    amount.setPosition(stockWidth + iconWidth + padding, bottomBar);
+        ss.str(std::string());
+        ss.clear();
+        ss << v[i] << '\n';
+        amount.setString(ss.str());
+        amount.setPosition(stockWidth*i + iconWidth + padding*2, bottomBar);
 
-    window.draw(icon);
-    window.draw(amount);
-
-    icon.setTexture(resourceHolder.getIcon("tools"));
-    icon.setPosition(stockWidth*2, bottomBar);
-
-    ss.str(std::string());
-    ss.clear();
-    ss << stock.tools << '\n';
-    amount.setString(ss.str());
-    amount.setPosition(stockWidth*2 + iconWidth + padding, bottomBar);
-
-    window.draw(icon);
-    window.draw(amount);
-
-    icon.setTexture(resourceHolder.getIcon("food"));
-    icon.setPosition(stockWidth*3, bottomBar);
-
-    ss.str(std::string());
-    ss.clear();
-    ss << stock.food << '\n';
-    amount.setString(ss.str());
-    amount.setPosition(stockWidth*3 + iconWidth + padding, bottomBar);
-
-    window.draw(icon);
-    window.draw(amount);
+        window.draw(icon);
+        window.draw(amount);
+    }
 }
 
 void Renderer::setFieldSelector(FieldSelector * fieldSelector) {
