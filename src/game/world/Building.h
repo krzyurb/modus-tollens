@@ -21,7 +21,7 @@ public:
 
     void produce() {}
 
-private:
+protected:
     Field * field;
     std::string kind;
 };

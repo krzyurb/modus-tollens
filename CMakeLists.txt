@@ -57,7 +57,9 @@ set(SOURCE_FILES
     src/game/rendering/map_modes/TreesMode.cpp
     src/game/rendering/map_modes/TreesMode.h
     src/game/world/Building.cpp
-    src/game/world/Building.h)
+    src/game/world/Building.h
+        src/game/world/buildings/Sawmill.cpp
+        src/game/world/buildings/Sawmill.h)
 
 set(TEST_SOURCES
     test/GameData_test.cpp

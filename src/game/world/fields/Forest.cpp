@@ -13,7 +13,7 @@ void Forest::randomize(){
 void Forest::setTree(std::string name) {
     int endurance = GameData::read<int>("materials/trees", name + ".endurance");
 
-    this->tree= Tree(name);
+    this->tree = Tree(name);
     this->tree.setEndurance(endurance);
 }
 
