@@ -14,6 +14,7 @@ ModusTollens::ModusTollens(sf::RenderWindow &window) : window(window), renderer(
     timer = std::make_unique<GameTimer>(tickDuration);
     calendar = std::make_unique<Calendar>(ticksPerDay);
     timer->addObserver(calendar.get());
+    timer->addObserver(&player);
 
     sidebar = std::make_unique<Sidebar>(calendar.get());
     buttonHandler = std::make_unique<ButtonHandler>(fieldSelector.get());
