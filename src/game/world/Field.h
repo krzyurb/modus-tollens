@@ -2,13 +2,15 @@
 
 #include <string>
 #include <memory>
-
+#include <iostream>
 #include "World.h"
 #include "Renderer.h"
 #include "Character.h"
+#include "Building.h"
 
 class Renderer;
 class World;
+class Building;
 
 class Field {
 protected:
@@ -18,6 +20,8 @@ protected:
     std::string name;
     World * world;
     Character * owner;
+    std::vector<Building*> buildings;
+    
 public:
     Field(int x, int y, World * world);
     virtual ~Field();
@@ -80,5 +84,15 @@ public:
 
     size_t getId(){
         return id;
+    }
+
+    const std::vector<Building *> &getBuildings() const {
+        return buildings;
+    }
+
+    void addBuilding(Building * building) {
+        if(buildings.size() < 3) {
+            this->buildings.push_back(building);
+        }
     }
 };
