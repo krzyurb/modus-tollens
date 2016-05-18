@@ -61,7 +61,7 @@ set(SOURCE_FILES
     src/game/world/buildings/Sawmill.cpp
     src/game/world/buildings/Sawmill.h
     src/game/world/buildings/Farm.cpp
-    src/game/world/buildings/Farm.h)
+    src/game/world/buildings/Farm.h src/game/window/listeners/NewBuilding.cpp src/game/window/listeners/NewBuilding.h)
 set(TEST_SOURCES
     test/GameData_test.cpp
 )
