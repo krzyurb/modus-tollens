@@ -1,7 +1,8 @@
 #include <GameData.hpp>
 #include <game/window/listeners/NewBuilding.h>
 #include <game/window/listeners/BuildCity.h>
-#include <game/window/listeners/BuildCity.h"
+#include <game/world/Building.h>
+#include <game/window/listeners/BuildCity.h>
 #include "ButtonHandler.h"
 
 ButtonHandler::ButtonHandler(FieldSelector * fieldSelector) : fieldSelector(fieldSelector) {}
@@ -28,11 +29,19 @@ void ButtonHandler::initializeButtons(int x){
     Button    * buildCity         = new Button(x, y, "Build City");
     BuildCity * buildCityListener = new BuildCity(fieldSelector);
     buildCity->setListener(buildCityListener);
-    y+=30;
+    y+=25;
     Button      * newSawmill          = new Button(x, y, "Build Sawmill");
-    NewBuilding * newSawmillListener  = new NewBuilding("sawmill");
+    NewBuilding * newSawmillListener  = new NewBuilding(BuildingKinds::SAWMILL, fieldSelector);
     newSawmill->setListener(newSawmillListener);
+
+    y+=25;
+    Button      * newFarm          = new Button(x, y, "Build Farm");
+    NewBuilding * newFarmListener  = new NewBuilding(BuildingKinds::FARM, fieldSelector);
+    newFarm->setListener(newFarmListener);
+
     addButton(buildCity);
+    addButton(newSawmill);
+    addButton(newFarm);
 }
 
 void ButtonHandler::render(Renderer &renderer) {

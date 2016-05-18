@@ -2,6 +2,8 @@
 
 #include "Field.h"
 
+enum class BuildingKinds { SAWMILL, FARM };
+
 class Building {
 public:
 
