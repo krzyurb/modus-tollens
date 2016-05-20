@@ -10,4 +10,5 @@ private:
 public:
     virtual ~Character() = 0;
     void takeField(Field *field);
+    void releaseField(Field *field);
 };
