@@ -36,6 +36,12 @@ void ModusTollens::loop() {
                 fieldSelector->findField(event.mouseButton.x, event.mouseButton.y);
                 buttonHandler->handleClick(event.mouseButton.x, event.mouseButton.y);
             }
+            if(event.type == sf::Event::KeyPressed){
+                int unicode = event.text.unicode;
+                if(unicode >= 27 && unicode <= 29){
+                    renderer.setMapMode(unicode - 26);
+                }
+            }
         }
 
         window.clear(sf::Color::Black);

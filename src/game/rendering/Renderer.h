@@ -24,18 +24,29 @@ private:
     sf::RenderWindow & window;
     FieldSelector * fieldSelector;
     sf::Font &textFont;
+    int mapMode;
 
 public:
     Renderer(sf::RenderWindow & window);
 
     void drawSprite(const sf::Sprite &sprite);
-    void drawField(const Field &field, bool dark = false);
+
+    void drawField(Field *field, bool dark = false);
+
     void drawWorld(World &world);
     void drawSidebar(const Sidebar &sidebar);
     void drawButtons(const ButtonHandler &buttonHandler);
     void drawButton(const Button &button);
     void drawPlayer(const Player &player);
     void setFieldSelector(FieldSelector * fieldSelector);
+
+    void setMapMode(int mode){
+        this->mapMode = mode;
+    }
+
+    int getMapMode() const {
+        return mapMode;
+    }
 
     FieldSelector *getFieldSelector() const {
         return fieldSelector;

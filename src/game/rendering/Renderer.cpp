@@ -1,22 +1,37 @@
 #include <iostream>
 #include <GameData.hpp>
 #include "Player.h"
+#include "Meadow.h"
 #include "Calendar.h"
 
 Renderer::Renderer(sf::RenderWindow & window)
     :window(window), textFont(resourceHolder.getFont("arial")) {
+    mapMode = 1;
 }
 
 void Renderer::drawSprite(const sf::Sprite &sprite) {
     window.draw(sprite);
 }
 
-void Renderer::drawField(const Field &field, bool dark){
+void Renderer::drawField(Field *field, bool dark){
     sf::Texture texture;
     sf::Sprite  sprite;
 
-    sprite.setTexture(resourceHolder.getField(field.getKind()));
-    sprite.setPosition(field.getX(), field.getY());
+    sprite.setTexture(resourceHolder.getField(field->getKind()));
+    sprite.setPosition(field->getX(), field->getY());
+
+    switch(getMapMode()){
+        case 2:
+            sf::Uint8 green = 0;
+            if(field->getKind() == "meadow") {
+                Meadow * meadow = (Meadow*) field;
+                if(meadow->getSoil().getName() != ""){
+                    green += meadow->getSoil().getFertility() * 2;
+                }
+            }
+            sprite.setColor(sf::Color(10, green, 10));
+        break;
+    }
 
     if(dark){
         sf::Uint8 dark = 180;

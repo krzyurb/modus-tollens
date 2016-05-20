@@ -8,7 +8,7 @@ Field::Field(int x, int y, World * world) : x(x), y(y), world(world) {}
 Field::~Field() {}
 
 void Field::render(Renderer &renderer, bool dark)const {
-    renderer.drawField(*this, dark);
+    renderer.drawField((Field *) this, dark);
 }
 
 Field::operator std::string() {
