@@ -10,6 +10,7 @@ target_link_libraries (main ${CMAKE_THREAD_LIBS_INIT})
 set(INCLUDES
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_SOURCE_DIR}/src/game/
+    ${CMAKE_SOURCE_DIR}/src/game/config
     ${CMAKE_SOURCE_DIR}/src/game/player
     ${CMAKE_SOURCE_DIR}/src/game/timing
     ${CMAKE_SOURCE_DIR}/src/game/rendering

@@ -1,4 +1,4 @@
-#include <GameData.hpp>
+#include "GameData.hpp"
 #include <game/timing/Calendar.h>
 #include "WorldGenerator.h"
 #include "ModusTollens.h"

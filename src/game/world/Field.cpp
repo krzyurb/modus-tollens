@@ -1,6 +1,6 @@
 #include <iostream>
 #include <sstream>
-#include <GameData.hpp>
+#include "GameData.hpp"
 #include "Field.h"
 
 Field::Field(int x, int y, World * world) : x(x), y(y), world(world) {}
