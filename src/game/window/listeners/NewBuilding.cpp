@@ -8,12 +8,10 @@ void NewBuilding::perform() {
     Building * building;
     switch(getKind()){
         case BuildingKinds::SAWMILL:
-            std::cout << "Builded sawmill!";
             building = new Sawmill(field);
         break;
 
         case BuildingKinds::FARM:
-            std::cout << "Builded farm!";
             building = new Farm(field);
         break;
     }

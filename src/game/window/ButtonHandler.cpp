@@ -24,7 +24,7 @@ bool ButtonHandler::inRange(int x, int y) {
 }
 
 void ButtonHandler::initializeButtons(int x){
-    int y = 300;
+    int y = 400;
 
     Button    * buildCity         = new Button(x, y, "Build City");
     BuildCity * buildCityListener = new BuildCity(fieldSelector);

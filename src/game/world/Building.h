@@ -9,6 +9,8 @@ public:
 
     Building(Field *field) : field(field) {}
 
+    std::string getDescription();
+
     Field *getField() const {
         return field;
     }

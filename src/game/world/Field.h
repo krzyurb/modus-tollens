@@ -34,6 +34,8 @@ public:
 
     virtual std::string getDescription();
 
+    std::string getBuildingsDescription();
+
     virtual void randomize();
 
     std::vector<Field*> getNeighbors();

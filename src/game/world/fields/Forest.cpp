@@ -21,6 +21,7 @@ std::string Forest::getDescription(){
     std::stringstream desc;
     desc << "Trees: " <<this->getTree().getName();
     desc << " (" << this->getTreesCount() << ")" << "\n";
-    desc << "Endurance: " <<this->getTree().getEndurance();
+    desc << "Endurance: " <<this->getTree().getEndurance() << "\n";
+    desc << "\n\nBuildings: \n" << getBuildingsDescription();
     return desc.str();
 }

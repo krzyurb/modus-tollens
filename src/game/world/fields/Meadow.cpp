@@ -20,6 +20,7 @@ std::string Meadow::getDescription(){
     } else {
         desc << "Barren field";
     }
+    desc << "\n\nBuildings: \n" << getBuildingsDescription();
     return desc.str();
 }
 

@@ -21,6 +21,14 @@ std::string Field::getDescription() {
     return "No info";
 }
 
+std::string Field::getBuildingsDescription() {
+    std::stringstream result;
+    for(auto & building : getBuildings()){
+        result << "  " << building->getDescription() << "\n";
+    }
+    return result.str();
+}
+
 void Field::randomize() {}
 
 std::vector<Field*> Field::getNeighbors(){
