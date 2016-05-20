@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "GameTimer.h"
+#include <random>
 
 Player::Player() {
     stock = {0};

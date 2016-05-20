@@ -78,7 +78,7 @@ public:
         this->id = id;
     }
 
-    int getId(){
+    size_t getId(){
         return id;
     }
 };

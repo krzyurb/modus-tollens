@@ -24,8 +24,8 @@ std::string Field::getDescription() {
 void Field::randomize() {}
 
 std::vector<Field*> Field::getNeighbors(){
-    int width  = GameData::read<int>("world", "width");
-    int height = GameData::read<int>("world", "height");
+    size_t width  = GameData::read<size_t>("world", "width");
+    size_t height = GameData::read<size_t>("world", "height");
     std::vector<Field*> neighbors;
     if(getId() > 0)
         neighbors.push_back(getWorld()->getFields()[getId() - 1]);

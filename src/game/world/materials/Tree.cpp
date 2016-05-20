@@ -3,4 +3,4 @@
 
 Tree::Tree() {}
 
-Tree::Tree(std::string name) : name(name) {};
+Tree::Tree(std::string name) : name(name) {}

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.3)
 project(modus_tollens)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -O2 -pthread -lboost_system")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -pedantic -O2 -pthread -lboost_system")
 
 find_package (Threads)
 add_executable (main src/main.cpp)
