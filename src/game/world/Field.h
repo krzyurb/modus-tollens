@@ -5,6 +5,7 @@
 
 #include "World.h"
 #include "Renderer.h"
+#include "Character.h"
 
 class Renderer;
 class World;
@@ -16,10 +17,12 @@ protected:
     std::string kind;
     std::string name;
     World * world;
-
+    Character * owner;
 public:
     Field(int x, int y, World * world);
     virtual ~Field();
+
+    void takeOwnership(Character * character);
 
     operator std::string();
 

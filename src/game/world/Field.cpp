@@ -37,3 +37,8 @@ std::vector<Field*> Field::getNeighbors(){
         neighbors.push_back(getWorld()->getFields()[getId() + height]);
     return neighbors;
 }
+
+void Field::takeOwnership(Character *character) {
+    character->takeField(this);
+    owner = character;
+}

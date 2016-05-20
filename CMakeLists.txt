@@ -52,7 +52,8 @@ set(SOURCE_FILES
     src/game/window/listeners/BuildCity.cpp
     src/game/window/listeners/BuildCity.h
     src/game/world/fields/City.cpp
-    src/game/ModusTollens.cpp)
+    src/game/ModusTollens.cpp
+    src/game/player/Character.cpp)
 
 set(TEST_SOURCES
     test/GameData_test.cpp
