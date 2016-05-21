@@ -24,10 +24,8 @@ void Player::update(Observable *o) {
 void Player::gather() {
     std::uniform_real_distribution<double> unif(0, 1);
     std::default_random_engine re;
-//    stock.wood += unif(re);
-    stock.stone += unif(re);
-    stock.tools += unif(re);
-    stock.food += unif(re);
+    stock.stone += 0;
+    stock.tools = 40;
 
     for(auto &field : getFields()){
         for(auto &building : field->getBuildings()) {
