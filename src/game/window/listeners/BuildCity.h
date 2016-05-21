@@ -6,7 +6,7 @@ class FieldSelector;
 
 class BuildCity : public ButtonListener {
 public:
-    BuildCity(FieldSelector * fieldSelector);
+    BuildCity(FieldSelector * fieldSelector, Player * player);
 
     void perform();
 
@@ -16,4 +16,5 @@ public:
 
 private:
     FieldSelector * fieldSelector;
+    Player * player;
 };

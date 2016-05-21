@@ -27,7 +27,7 @@ void ButtonHandler::initializeButtons(int x){
     int y = 400;
 
     Button    * buildCity         = new Button(x, y, "Build City");
-    BuildCity * buildCityListener = new BuildCity(fieldSelector);
+    BuildCity * buildCityListener = new BuildCity(fieldSelector, getCurrentPlayer());
     buildCity->setListener(buildCityListener);
     y+=25;
     Button      * newSawmill          = new Button(x, y, "Build Sawmill");
