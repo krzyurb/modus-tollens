@@ -5,7 +5,7 @@
 #include <game/window/listeners/BuildCity.h>
 #include "ButtonHandler.h"
 
-ButtonHandler::ButtonHandler(FieldSelector * fieldSelector) : fieldSelector(fieldSelector) {}
+ButtonHandler::ButtonHandler(FieldSelector * fieldSelector, Player * currentPlayer) : fieldSelector(fieldSelector), currentPlayer(currentPlayer) {}
 
 void ButtonHandler::handleClick(int x, int y) {
     if(inRange(x,y)){
@@ -31,12 +31,12 @@ void ButtonHandler::initializeButtons(int x){
     buildCity->setListener(buildCityListener);
     y+=25;
     Button      * newSawmill          = new Button(x, y, "Build Sawmill");
-    NewBuilding * newSawmillListener  = new NewBuilding(BuildingKinds::SAWMILL, fieldSelector);
+    NewBuilding * newSawmillListener  = new NewBuilding(BuildingKinds::SAWMILL, fieldSelector, getCurrentPlayer());
     newSawmill->setListener(newSawmillListener);
 
     y+=25;
     Button      * newFarm          = new Button(x, y, "Build Farm");
-    NewBuilding * newFarmListener  = new NewBuilding(BuildingKinds::FARM, fieldSelector);
+    NewBuilding * newFarmListener  = new NewBuilding(BuildingKinds::FARM, fieldSelector, getCurrentPlayer());
     newFarm->setListener(newFarmListener);
 
     addButton(buildCity);

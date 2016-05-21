@@ -4,14 +4,16 @@
 
 class Button;
 class FieldSelector;
+class Player;
 
 class ButtonHandler {
 private:
     std::vector<Button*> buttons;
     FieldSelector * fieldSelector;
+    Player * currentPlayer;
 public:
 
-    ButtonHandler(FieldSelector * fieldSelector);
+    ButtonHandler(FieldSelector * fieldSelector, Player * currentPlayer);
 
     ~ButtonHandler();
 
@@ -22,6 +24,14 @@ public:
     void initializeButtons(int x);
 
     void render(Renderer &renderer);
+
+    Player *getCurrentPlayer() const {
+        return currentPlayer;
+    }
+
+    void setCurrentPlayer(Player *currentPlayer) {
+        this->currentPlayer = currentPlayer;
+    }
 
     FieldSelector *getFieldSelector() const {
         return fieldSelector;

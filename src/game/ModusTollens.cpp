@@ -17,7 +17,7 @@ ModusTollens::ModusTollens(sf::RenderWindow &window) : window(window), renderer(
     timer->addObserver(&player);
 
     sidebar = std::make_unique<Sidebar>(calendar.get());
-    buttonHandler = std::make_unique<ButtonHandler>(fieldSelector.get());
+    buttonHandler = std::make_unique<ButtonHandler>(fieldSelector.get(), &player);
     buttonHandler->initializeButtons(sidebar->getX());
 }
 

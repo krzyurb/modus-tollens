@@ -7,7 +7,7 @@
 class NewBuilding : public ButtonListener{
 
 public:
-    NewBuilding(BuildingKinds kind, FieldSelector * fieldSelector) : kind(kind), fieldSelector(fieldSelector) {};
+    NewBuilding(BuildingKinds kind, FieldSelector * fieldSelector, Player * player) : kind(kind), fieldSelector(fieldSelector), owner(player) {};
 
     FieldSelector *getFieldSelector() const {
         return fieldSelector;
@@ -19,7 +19,16 @@ public:
 
     void perform();
 
+    Player*getOwner() const {
+        return owner;
+    }
+
+    void setOwner(Player *owner) {
+        this->owner = owner;
+    }
+
 private:
     BuildingKinds kind;
     FieldSelector * fieldSelector;
+    Player * owner;
 };

@@ -5,9 +5,8 @@
 class Field;
 
 class Character {
-private:
-    std::vector<Field*> fields;
 public:
+    std::vector<Field*> fields;
     virtual ~Character() = 0;
     void takeField(Field *field);
     void releaseField(Field *field);

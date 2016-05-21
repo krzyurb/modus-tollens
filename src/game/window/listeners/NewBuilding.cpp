@@ -15,6 +15,6 @@ void NewBuilding::perform() {
             building = new Farm(field);
         break;
     }
-
+    field->takeOwnership((Character *) getOwner());
     field->addBuilding(building);
 }
