@@ -3,10 +3,6 @@ project(modus_tollens)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -pedantic -O2 -pthread -lboost_system")
 
-find_package (Threads)
-add_executable (main src/main.cpp)
-target_link_libraries (main ${CMAKE_THREAD_LIBS_INIT})
-
 set(INCLUDES
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_SOURCE_DIR}/src/game/
