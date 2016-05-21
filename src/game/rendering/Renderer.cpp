@@ -2,6 +2,7 @@
 #include <GameData.hpp>
 #include "Player.h"
 #include "Meadow.h"
+#include "Forest.h"
 #include "Calendar.h"
 
 Renderer::Renderer(sf::RenderWindow & window)
@@ -20,17 +21,35 @@ void Renderer::drawField(Field *field, bool dark){
     sprite.setTexture(resourceHolder.getField(field->getKind()));
     sprite.setPosition(field->getX(), field->getY());
 
+    sf::Uint8 green = 0;
+    sf::Uint8 red   = 0;
+
     switch(getMapMode()){
-        case 2:
-            sf::Uint8 green = 0;
-            if(field->getKind() == "meadow") {
-                Meadow * meadow = (Meadow*) field;
-                if(meadow->getSoil().getName() != ""){
+        case 2: {
+            if (field->getKind() == "meadow") {
+                Meadow *meadow = (Meadow *) field;
+                if (meadow->getSoil().getName() != "") {
                     green += meadow->getSoil().getFertility() * 2;
+                } else {
+                    red = 200;
                 }
             }
-            sprite.setColor(sf::Color(10, green, 10));
-        break;
+            sprite.setColor(sf::Color(red, green, 0));
+            break;
+        }
+
+        case 3: {
+            if (field->getKind() == "forest") {
+                Forest *forest = (Forest *) field;
+                green += forest->getTreesCount() / 4;
+                if(forest->getTreesCount() == 0) {
+                    red = 200;
+                    green = 0;
+                }
+            }
+            sprite.setColor(sf::Color(red, green, 0));
+            break;
+        }
     }
 
     if(dark){
