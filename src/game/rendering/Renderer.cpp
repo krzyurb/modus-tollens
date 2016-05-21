@@ -7,7 +7,7 @@
 
 Renderer::Renderer(sf::RenderWindow & window)
     :window(window), textFont(resourceHolder.getFont("arial")) {
-    mapMode = 1;
+    mapMode = MapMode::NORMAL;
 }
 
 void Renderer::drawSprite(const sf::Sprite &sprite) {
@@ -23,9 +23,8 @@ void Renderer::drawField(Field *field, bool dark){
 
     sf::Uint8 green = 0;
     sf::Uint8 red   = 0;
-
     switch(getMapMode()){
-        case 2: {
+        case MapMode::FERTILITY: {
             if (field->getKind() == "meadow") {
                 Meadow *meadow = (Meadow *) field;
                 if (meadow->getSoil().getName() != "") {
@@ -38,7 +37,7 @@ void Renderer::drawField(Field *field, bool dark){
             break;
         }
 
-        case 3: {
+        case MapMode::TREES: {
             if (field->getKind() == "forest") {
                 Forest *forest = (Forest *) field;
                 green += forest->getTreesCount() / 4;
@@ -167,4 +166,10 @@ void Renderer::drawPlayer(const Player &player) {
 
 void Renderer::setFieldSelector(FieldSelector * fieldSelector) {
     this->fieldSelector = fieldSelector;
+}
+
+void Renderer::setMapMode(int unicode) {
+    int zero = 27;
+    if(unicode >= zero && unicode < (int)MapMode::SIZE + zero)
+        this->mapMode = (MapMode)(unicode - zero);
 }

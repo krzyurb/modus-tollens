@@ -18,13 +18,15 @@ class FieldSelector;
 class ButtonHandler;
 class Button;
 
+enum class MapMode { NORMAL, FERTILITY, TREES, SIZE };
+
 class Renderer {
 private:
     ResourceHolder resourceHolder;
     sf::RenderWindow & window;
     FieldSelector * fieldSelector;
     sf::Font &textFont;
-    int mapMode;
+    MapMode mapMode;
 
 public:
     Renderer(sf::RenderWindow & window);
@@ -40,11 +42,9 @@ public:
     void drawPlayer(const Player &player);
     void setFieldSelector(FieldSelector * fieldSelector);
 
-    void setMapMode(int mode){
-        this->mapMode = mode;
-    }
+    void setMapMode(int unicode);
 
-    int getMapMode() const {
+    MapMode getMapMode() const {
         return mapMode;
     }
 
