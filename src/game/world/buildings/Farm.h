@@ -9,5 +9,5 @@ public:
         this->kind = "farm";
     }
 
-    void produce();
+    void produce(Player * player);
 };

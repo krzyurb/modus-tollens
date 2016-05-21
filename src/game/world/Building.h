@@ -4,6 +4,8 @@
 
 enum class BuildingKinds { SAWMILL, FARM };
 
+class Player;
+
 class Building {
 public:
 
@@ -23,7 +25,7 @@ public:
         return kind;
     }
 
-    virtual void produce() {}
+    virtual void produce(Player * player) = 0;
 
 protected:
     Field * field;

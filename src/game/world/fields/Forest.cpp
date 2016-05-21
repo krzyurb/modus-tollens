@@ -25,3 +25,7 @@ std::string Forest::getDescription(){
     desc << "\n\nBuildings: \n" << getBuildingsDescription();
     return desc.str();
 }
+
+void Forest::cutTrees(int count) {
+    treesCount -= count;
+}

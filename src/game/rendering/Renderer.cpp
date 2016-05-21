@@ -103,8 +103,8 @@ void Renderer::drawButton(const Button &button) {
     window.draw(text);
 }
 
-void Renderer::drawPlayer(const Player &player) {
-    const Stock &stock = player.getStock();
+void Renderer::drawPlayer(Player &player) {
+    Stock &stock = player.getStock();
 
     int worldHeight = GameData::read<int>("world", "height");
     int worldWidth = GameData::read<int>("world", "width");

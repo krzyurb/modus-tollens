@@ -18,7 +18,7 @@ private:
     Stock stock;
 public:
     Player();
-    const Stock &getStock() const;
+    Stock &getStock();
     void render(Renderer & renderer);
     void update(Observable * o);
     void gather();

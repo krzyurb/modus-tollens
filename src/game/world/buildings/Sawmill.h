@@ -9,5 +9,5 @@ public:
         this->kind = "sawmill";
     }
 
-    void produce();
+    void produce(Player * player);
 };

@@ -1,7 +1,7 @@
 #include "Meadow.h"
 #include "Farm.h"
 
-void Farm::produce() {
+void Farm::produce(Player * player) {
     std::string fieldKind = getField()->getKind();
 
     if(fieldKind == "farm"){

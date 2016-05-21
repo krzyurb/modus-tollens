@@ -21,6 +21,8 @@ public:
 
     void setTree(std::string name);
 
+    void cutTrees(int count);
+
     const Tree &getTree() const {
         return tree;
     }

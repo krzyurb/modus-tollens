@@ -39,7 +39,7 @@ public:
     void drawSidebar(const Sidebar &sidebar);
     void drawButtons(const ButtonHandler &buttonHandler);
     void drawButton(const Button &button);
-    void drawPlayer(const Player &player);
+    void drawPlayer(Player &player);
     void setFieldSelector(FieldSelector * fieldSelector);
 
     void setMapMode(int unicode);

@@ -2,9 +2,8 @@
 #include "Sawmill.h"
 #include <iostream>
 
-void Sawmill::produce() {
+void Sawmill::produce(Player * player) {
     std::string fieldKind = getField()->getKind();
-
     if(fieldKind == "forest"){
         Forest * field = (Forest *) getField();
 
@@ -17,11 +16,16 @@ void Sawmill::produce() {
                 if(neighbor->getKind() != "forest")
                     deepForest = false;
             }
-
             if(deepForest) { wood += 4; }
 
-            std::cout << "Used: "   << endurance << " tools";
-            std::cout << "Gained: " << wood << " wood";
+            if(player->getStock().tools >= endurance){
+                field->cutTrees(wood);
+                player->getStock().wood  += wood;
+                player->getStock().tools -= endurance;
+            } else {
+            }
+        } else {
+            field->setTreesCount(0);
         }
     }
 }
