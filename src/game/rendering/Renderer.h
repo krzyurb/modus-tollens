@@ -51,4 +51,6 @@ public:
     FieldSelector *getFieldSelector() const {
         return fieldSelector;
     }
+
+    void drawMapMode(sf::Sprite *sprite, Field *field);
 };

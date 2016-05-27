@@ -1,5 +1,7 @@
 #include <iostream>
 #include <GameData.hpp>
+#include <game/rendering/map_modes/FertilityMode.h>
+#include <game/rendering/map_modes/TreesMode.h>
 #include "Player.h"
 #include "Meadow.h"
 #include "Forest.h"
@@ -21,34 +23,8 @@ void Renderer::drawField(Field *field, bool dark){
     sprite.setTexture(resourceHolder.getField(field->getKind()));
     sprite.setPosition(field->getX(), field->getY());
 
-    sf::Uint8 green = 0;
-    sf::Uint8 red   = 0;
-    switch(getMapMode()){
-        case MapMode::FERTILITY: {
-            if (field->getKind() == "meadow") {
-                Meadow *meadow = (Meadow *) field;
-                if (meadow->getSoil().getName() != "") {
-                    green += meadow->getSoil().getFertility() * 2;
-                } else {
-                    red = 200;
-                }
-            }
-            sprite.setColor(sf::Color(red, green, 0));
-            break;
-        }
-
-        case MapMode::TREES: {
-            if (field->getKind() == "forest") {
-                Forest *forest = (Forest *) field;
-                green += forest->getTreesCount() / 4;
-                if(forest->getTreesCount() == 0) {
-                    red = 200;
-                    green = 0;
-                }
-            }
-            sprite.setColor(sf::Color(red, green, 0));
-            break;
-        }
+    if(getMapMode() != MapMode::NORMAL){
+        drawMapMode(&sprite, field);
     }
 
     if(dark){
@@ -172,4 +148,18 @@ void Renderer::setMapMode(int unicode) {
     int zero = 27;
     if(unicode >= zero && unicode < (int)MapMode::SIZE + zero)
         this->mapMode = (MapMode)(unicode - zero);
+}
+
+void Renderer::drawMapMode(sf::Sprite *sprite, Field *field) {
+    switch(getMapMode()){
+        case MapMode::FERTILITY: {
+            FertilityMode(sprite, field).render();
+            break;
+        }
+
+        case MapMode::TREES: {
+            TreesMode(sprite, field).render();
+            break;
+        }
+    }
 }

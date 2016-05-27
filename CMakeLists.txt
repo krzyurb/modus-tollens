@@ -9,6 +9,7 @@ set(INCLUDES
     ${CMAKE_SOURCE_DIR}/src/game/player
     ${CMAKE_SOURCE_DIR}/src/game/timing
     ${CMAKE_SOURCE_DIR}/src/game/rendering
+    ${CMAKE_SOURCE_DIR}/src/game/rendering/map_modes
     ${CMAKE_SOURCE_DIR}/src/game/window
     ${CMAKE_SOURCE_DIR}/src/game/world
     ${CMAKE_SOURCE_DIR}/src/game/world/fields
@@ -49,7 +50,12 @@ set(SOURCE_FILES
     src/game/window/listeners/BuildCity.h
     src/game/world/fields/City.cpp
     src/game/ModusTollens.cpp
-    src/game/player/Character.cpp)
+    src/game/player/Character.cpp
+    src/game/rendering/map_modes/MapModeRenderer.h
+    src/game/rendering/map_modes/FertilityMode.cpp
+    src/game/rendering/map_modes/FertilityMode.h
+    src/game/rendering/map_modes/TreesMode.cpp
+    src/game/rendering/map_modes/TreesMode.h)
 
 set(TEST_SOURCES
     test/GameData_test.cpp
