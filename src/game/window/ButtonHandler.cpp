@@ -1,9 +1,6 @@
 #include <GameData.hpp>
-#include <game/window/listeners/NewBuilding.h>
-#include <game/window/listeners/BuildCity.h>
-#include <game/world/Building.h>
-#include <game/window/listeners/BuildCity.h>
-#include "ButtonHandler.h"
+#include "NewBuilding.h"
+#include "BuildCity.h"
 
 ButtonHandler::ButtonHandler(FieldSelector * fieldSelector, Player * currentPlayer) : fieldSelector(fieldSelector), currentPlayer(currentPlayer) {}
 

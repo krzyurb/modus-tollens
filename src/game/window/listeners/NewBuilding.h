@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include "FieldSelector.h"
-#include <game/world/Building.h>
+#include "Building.h"
 
 class NewBuilding : public ButtonListener{
 

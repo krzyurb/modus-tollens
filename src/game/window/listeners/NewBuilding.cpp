@@ -1,6 +1,6 @@
-#include <game/world/fields/City.h>
-#include <game/world/buildings/Sawmill.h>
-#include <game/world/buildings/Farm.h>
+#include "City.h"
+#include "Sawmill.h"
+#include "Farm.h"
 #include "NewBuilding.h"
 
 void NewBuilding::perform() {

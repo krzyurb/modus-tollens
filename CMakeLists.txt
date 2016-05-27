@@ -11,8 +11,10 @@ set(INCLUDES
     ${CMAKE_SOURCE_DIR}/src/game/rendering
     ${CMAKE_SOURCE_DIR}/src/game/rendering/map_modes
     ${CMAKE_SOURCE_DIR}/src/game/window
+    ${CMAKE_SOURCE_DIR}/src/game/window/listeners
     ${CMAKE_SOURCE_DIR}/src/game/world
     ${CMAKE_SOURCE_DIR}/src/game/world/fields
+    ${CMAKE_SOURCE_DIR}/src/game/world/buildings
     ${CMAKE_SOURCE_DIR}/src/game/world/materials
 )
 
@@ -61,7 +63,10 @@ set(SOURCE_FILES
     src/game/world/buildings/Sawmill.cpp
     src/game/world/buildings/Sawmill.h
     src/game/world/buildings/Farm.cpp
-    src/game/world/buildings/Farm.h src/game/window/listeners/NewBuilding.cpp src/game/window/listeners/NewBuilding.h)
+    src/game/world/buildings/Farm.h
+    src/game/window/listeners/NewBuilding.cpp
+    src/game/window/listeners/NewBuilding.h)
+
 set(TEST_SOURCES
     test/GameData_test.cpp
 )
