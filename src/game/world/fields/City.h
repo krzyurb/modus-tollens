@@ -5,4 +5,6 @@
 class City : public Field {
 public:
     City(int x, int y, World * world);
+
+    virtual std::string getDescription() override;
 };
