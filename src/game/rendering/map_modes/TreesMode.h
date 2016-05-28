@@ -1,11 +1,8 @@
 #pragma once
 
-#include "MapModeRenderer.h"
+#include "MapMode.h"
 
-class TreesMode : public MapModeRenderer{
-
+class TreesMode : public MapMode {
 public:
-    TreesMode(sf::Sprite *sprite, Field *field);
-
-    virtual void render() override;
+    virtual sf::Sprite getSprite(Field * field) const override;
 };

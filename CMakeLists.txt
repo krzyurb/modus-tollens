@@ -53,7 +53,10 @@ set(SOURCE_FILES
     src/game/world/fields/City.cpp
     src/game/ModusTollens.cpp
     src/game/player/Character.cpp
-    src/game/rendering/map_modes/MapModeRenderer.h
+    src/game/rendering/map_modes/MapMode.cpp
+    src/game/rendering/map_modes/MapMode.h
+    src/game/rendering/map_modes/NormalMode.cpp
+    src/game/rendering/map_modes/NormalMode.h
     src/game/rendering/map_modes/FertilityMode.cpp
     src/game/rendering/map_modes/FertilityMode.h
     src/game/rendering/map_modes/TreesMode.cpp

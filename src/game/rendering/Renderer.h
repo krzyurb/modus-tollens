@@ -1,6 +1,8 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <game/rendering/map_modes/MapMode.h>
+#include "MapMode.h"
 #include "Player.h"
 #include "Sidebar.h"
 #include "Button.h"
@@ -18,15 +20,13 @@ class FieldSelector;
 class ButtonHandler;
 class Button;
 
-enum class MapMode { NORMAL, FERTILITY, TREES, SIZE };
-
 class Renderer {
 private:
     ResourceHolder resourceHolder;
     sf::RenderWindow & window;
     FieldSelector * fieldSelector;
     sf::Font &textFont;
-    MapMode mapMode;
+    const MapMode * mapMode;
 
 public:
     Renderer(sf::RenderWindow & window);
@@ -44,13 +44,7 @@ public:
 
     void setMapMode(int unicode);
 
-    MapMode getMapMode() const {
-        return mapMode;
-    }
-
     FieldSelector *getFieldSelector() const {
         return fieldSelector;
     }
-
-    void drawMapMode(sf::Sprite *sprite, Field *field);
 };

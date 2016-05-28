@@ -1,11 +1,10 @@
 #include "Forest.h"
 #include "TreesMode.h"
 
-TreesMode::TreesMode(sf::Sprite *sprite, Field *field) : MapModeRenderer(sprite, field) {}
-
-void TreesMode::render() {
+sf::Sprite TreesMode::getSprite(Field * field) const {
     sf::Uint8 green = 0;
     sf::Uint8 red   = 0;
+    sf::Sprite sprite;
 
     if (field->getKind() == "forest") {
         Forest *forest = (Forest *) field;
@@ -15,5 +14,6 @@ void TreesMode::render() {
             green = 0;
         }
     }
-    sprite->setColor(sf::Color(red, green, 0));
+    sprite.setColor(sf::Color(red, green, 0));
+    return sprite;
 }

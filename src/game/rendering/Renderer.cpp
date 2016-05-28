@@ -1,15 +1,13 @@
 #include <iostream>
 #include <GameData.hpp>
-#include <game/rendering/map_modes/FertilityMode.h>
-#include <game/rendering/map_modes/TreesMode.h>
+#include "MapMode.h"
 #include "Player.h"
-#include "Meadow.h"
-#include "Forest.h"
 #include "Calendar.h"
 
 Renderer::Renderer(sf::RenderWindow & window)
     :window(window), textFont(resourceHolder.getFont("arial")) {
-    mapMode = MapMode::NORMAL;
+    MapMode::init();
+    mapMode = MapMode::get(MapMode::NORMAL);
 }
 
 void Renderer::drawSprite(const sf::Sprite &sprite) {
@@ -18,14 +16,9 @@ void Renderer::drawSprite(const sf::Sprite &sprite) {
 
 void Renderer::drawField(Field *field, bool dark){
     sf::Texture texture;
-    sf::Sprite  sprite;
-
+    sf::Sprite sprite = mapMode->getSprite(field);
     sprite.setTexture(resourceHolder.getField(field->getKind()));
     sprite.setPosition(field->getX(), field->getY());
-
-    if(getMapMode() != MapMode::NORMAL){
-        drawMapMode(&sprite, field);
-    }
 
     if(dark){
         sf::Uint8 dark = 180;
@@ -146,19 +139,5 @@ void Renderer::setFieldSelector(FieldSelector * fieldSelector) {
 
 void Renderer::setMapMode(int unicode) {
     if(unicode >= sf::Keyboard::Num1 && unicode < (int)MapMode::SIZE + sf::Keyboard::Num1)
-        this->mapMode = (MapMode)(unicode - sf::Keyboard::Num1);
-}
-
-void Renderer::drawMapMode(sf::Sprite *sprite, Field *field) {
-    switch(getMapMode()){
-        case MapMode::FERTILITY: {
-            FertilityMode(sprite, field).render();
-            break;
-        }
-
-        case MapMode::TREES: {
-            TreesMode(sprite, field).render();
-            break;
-        }
-    }
+        this->mapMode = MapMode::get(unicode - sf::Keyboard::Num1);
 }

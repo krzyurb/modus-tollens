@@ -1,12 +1,8 @@
 #pragma once
 
-#include <game/rendering/Renderer.h>
-#include "MapModeRenderer.h"
+#include "MapMode.h"
 
-class FertilityMode : public MapModeRenderer {
-
+class FertilityMode : public MapMode {
 public:
-    FertilityMode(sf::Sprite * sprite, Field *field);
-
-    void render();
+    virtual sf::Sprite getSprite(Field * field) const override;
 };
