@@ -9,23 +9,23 @@ class Player;
 class Building {
 public:
 
-    Building(Field *field) : field(field) {}
+    Building(Field *field);
 
     std::string getDescription();
+
+    virtual void produce(Player * player) = 0;
 
     Field *getField() const {
         return field;
     }
 
     void setField(Field *field) {
-        Building::field = field;
+        this->field = field;
     }
 
     const std::string &getKind() const {
         return kind;
     }
-
-    virtual void produce(Player * player) = 0;
 
 protected:
     Field * field;

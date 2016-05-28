@@ -1,9 +1,8 @@
 #include "Building.h"
-#include <iostream>
 #include <sstream>
 
+Building::Building(Field * field) : field(field) {}
+
 std::string Building::getDescription() {
-    std::stringstream result;
-    result << getKind() << " ";
-    return result.str();
+    return getKind();
 }
