@@ -23,22 +23,22 @@ bool ButtonsBar::inRange(int x, int y) {
 void ButtonsBar::initializeButtons(int x){
     int y = 400;
 
-    Button    * buildCity         = new Button(x, y, "Build City");
+    std::unique_ptr<Button> buildCity = std::make_unique<Button>(x, y, "Build City");
     BuildCity * buildCityListener = new BuildCity(fieldSelector, getCurrentPlayer());
     buildCity->setListener(buildCityListener);
     y+=25;
-    Button      * newSawmill          = new Button(x, y, "Build Sawmill");
+    std::unique_ptr<Button> newSawmill  = std::make_unique<Button>(x, y, "Build Sawmill");
     NewBuilding * newSawmillListener  = new NewBuilding(BuildingKinds::SAWMILL, fieldSelector, getCurrentPlayer());
     newSawmill->setListener(newSawmillListener);
 
     y+=25;
-    Button      * newFarm          = new Button(x, y, "Build Farm");
+    std::unique_ptr<Button> newFarm  = std::make_unique<Button>(x, y, "Build Farm");
     NewBuilding * newFarmListener  = new NewBuilding(BuildingKinds::FARM, fieldSelector, getCurrentPlayer());
     newFarm->setListener(newFarmListener);
 
-    addButton(buildCity);
-    addButton(newSawmill);
-    addButton(newFarm);
+    addButton(std::move(buildCity));
+    addButton(std::move(newSawmill));
+    addButton(std::move(newFarm));
 }
 
 void ButtonsBar::render(Renderer &renderer) {

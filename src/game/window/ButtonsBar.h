@@ -8,7 +8,7 @@ class Player;
 
 class ButtonsBar {
 private:
-    std::vector<Button*> buttons;
+    std::vector<std::unique_ptr<Button>> buttons;
     FieldSelector * fieldSelector;
     Player * currentPlayer;
 public:
@@ -37,11 +37,11 @@ public:
         return fieldSelector;
     }
 
-    void addButton(Button * button) {
-        buttons.push_back(button);
+    void addButton(std::unique_ptr<Button> button) {
+        buttons.push_back(std::move(button));
     }
 
-    const std::vector<Button *> &getButtons() const {
+    const std::vector<std::unique_ptr<Button>> &getButtons() const {
         return buttons;
     }
 
