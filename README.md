@@ -1,7 +1,7 @@
 # Modus Tollens
-Gra strategiczna wzorowana na Dwarf Fortress.
+2D Realtime economic strategy game with no main objectives.
 
-## Wymagania
+## Prerequisites
 
 * SFML 2.3.2
 * boost 1.60.0
@@ -9,17 +9,17 @@ Gra strategiczna wzorowana na Dwarf Fortress.
 * cmake 3.5.0
 * gcc
 
-## Kompilacja z użyciem cmake
+## Compilation with cmake
+
+    ./mt-install
+
+or
 
     mkdir Build
     cd Build
     cmake -G "Unix Makefiles"
     make
 
-## Uruchomienie testów (gtest)
-
-    ./modus_tollens_test
-
-## Uruchomienie gry
+## Run game
 
     ./modus_tollens
