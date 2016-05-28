@@ -145,9 +145,8 @@ void Renderer::setFieldSelector(FieldSelector * fieldSelector) {
 }
 
 void Renderer::setMapMode(int unicode) {
-    int zero = 27;
-    if(unicode >= zero && unicode < (int)MapMode::SIZE + zero)
-        this->mapMode = (MapMode)(unicode - zero);
+    if(unicode >= sf::Keyboard::Num1 && unicode < (int)MapMode::SIZE + sf::Keyboard::Num1)
+        this->mapMode = (MapMode)(unicode - sf::Keyboard::Num1);
 }
 
 void Renderer::drawMapMode(sf::Sprite *sprite, Field *field) {
