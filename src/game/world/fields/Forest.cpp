@@ -22,7 +22,7 @@ std::string Forest::getDescription(){
     desc << "Trees: " <<this->getTree().getName();
     desc << " (" << this->getTreesCount() << ")" << "\n";
     desc << "Endurance: " <<this->getTree().getEndurance() << "\n";
-    desc << "\n\nBuildings: \n" << getBuildingsDescription();
+    desc << getBuildingsDescription();
     return desc.str();
 }
 

@@ -22,9 +22,11 @@ std::string Field::getDescription() {
 }
 
 std::string Field::getBuildingsDescription() {
+    if(getBuildings().empty()) return "";
     std::stringstream result;
+    result << "\n\nBuildings: \n";
     for(auto & building : getBuildings()){
-        result << "  " << building->getDescription() << "\n";
+        result << "-" << building->getDescription() << "\n";
     }
     return result.str();
 }
@@ -49,4 +51,10 @@ std::vector<Field*> Field::getNeighbors(){
 void Field::takeOwnership(Character *character) {
     character->takeField(this);
     owner = character;
+}
+
+void Field::addBuilding(Building * building) {
+    if(buildings.size() < 3) {
+        this->buildings.push_back(building);
+    }
 }

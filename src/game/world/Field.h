@@ -40,6 +40,8 @@ public:
 
     std::vector<Field*> getNeighbors();
 
+    void addBuilding(Building * building);
+
     const std::string& getKind() const {
         return kind;
     }
@@ -90,11 +92,5 @@ public:
 
     const std::vector<Building *> &getBuildings() const {
         return buildings;
-    }
-
-    void addBuilding(Building * building) {
-        if(buildings.size() < 3) {
-            this->buildings.push_back(building);
-        }
     }
 };
