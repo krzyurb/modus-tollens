@@ -16,10 +16,7 @@ public:
 
     Tree(std::string name);
 
-    static std::string randomizeTreeKind() {
-        int size = sizeof(treesKinds) / 8;
-        return treesKinds[rand() % size];
-    }
+    static std::string randomizeTreeKind();
 
     const std::string &getName() const {
         return name;
