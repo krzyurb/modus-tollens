@@ -51,8 +51,8 @@ void Field::takeOwnership(Character *character) {
     owner = character;
 }
 
-void Field::addBuilding(Building * building) {
+void Field::addBuilding(std::unique_ptr<Building> &&building) {
     if(buildings.size() < 3) {
-        this->buildings.push_back(building);
+        this->buildings.push_back(std::move(building));
     }
 }

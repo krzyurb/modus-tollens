@@ -5,16 +5,17 @@
 
 void NewBuilding::perform() {
     Field * field = getFieldSelector()->getSelectedField();
-    Building * building;
+    std::unique_ptr<Building> building;
+
     switch(getKind()){
         case BuildingKinds::SAWMILL:
-            building = new Sawmill(field);
+            building = std::move(std::make_unique<Sawmill>(field));
         break;
 
         case BuildingKinds::FARM:
-            building = new Farm(field);
+            building = std::move(std::make_unique<Farm>(field));
         break;
     }
     field->takeOwnership((Character *) getOwner());
-    field->addBuilding(building);
+    field->addBuilding(std::move(building));
 }
