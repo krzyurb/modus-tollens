@@ -46,8 +46,8 @@ set(SOURCE_FILES
     src/game/window/Button.h
     src/game/window/ButtonListener.cpp
     src/game/window/ButtonListener.h
-    src/game/window/ButtonHandler.cpp
-    src/game/window/ButtonHandler.h
+    src/game/window/ButtonsBar.cpp
+    src/game/window/ButtonsBar.h
     src/game/window/listeners/BuildCity.cpp
     src/game/window/listeners/BuildCity.h
     src/game/world/fields/City.cpp

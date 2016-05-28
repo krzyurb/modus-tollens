@@ -16,7 +16,7 @@ private:
     std::unique_ptr<GameTimer> timer;
     std::unique_ptr<Calendar> calendar;
     std::unique_ptr<Sidebar> sidebar;
-    std::unique_ptr<ButtonHandler> buttonHandler;
+    std::unique_ptr<ButtonsBar> buttonsBar;
     Renderer renderer;
     Player player;
 

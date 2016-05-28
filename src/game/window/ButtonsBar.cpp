@@ -2,9 +2,9 @@
 #include "NewBuilding.h"
 #include "BuildCity.h"
 
-ButtonHandler::ButtonHandler(FieldSelector * fieldSelector, Player * currentPlayer) : fieldSelector(fieldSelector), currentPlayer(currentPlayer) {}
+ButtonsBar::ButtonsBar(FieldSelector * fieldSelector, Player * currentPlayer) : fieldSelector(fieldSelector), currentPlayer(currentPlayer) {}
 
-void ButtonHandler::handleClick(int x, int y) {
+void ButtonsBar::handleClick(int x, int y) {
     if(inRange(x,y)){
         for(auto &button : getButtons()) {
             if((x > button->getX() && x < button->getX() + 150) && (y > button->getY() && y < button->getY() + 18 )){
@@ -14,13 +14,13 @@ void ButtonHandler::handleClick(int x, int y) {
     }
 }
 
-bool ButtonHandler::inRange(int x, int y) {
+bool ButtonsBar::inRange(int x, int y) {
     int tileSize = GameData::read<int>("world", "tileSize");
     int width    = GameData::read<int>("world", "width")  * tileSize;
     return (x > width);
 }
 
-void ButtonHandler::initializeButtons(int x){
+void ButtonsBar::initializeButtons(int x){
     int y = 400;
 
     Button    * buildCity         = new Button(x, y, "Build City");
@@ -41,10 +41,10 @@ void ButtonHandler::initializeButtons(int x){
     addButton(newFarm);
 }
 
-void ButtonHandler::render(Renderer &renderer) {
+void ButtonsBar::render(Renderer &renderer) {
     renderer.drawButtons(*this);
 }
 
-ButtonHandler::~ButtonHandler() {
+ButtonsBar::~ButtonsBar() {
     buttons.clear();
 }
