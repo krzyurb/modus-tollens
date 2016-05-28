@@ -21,10 +21,9 @@ protected:
     World * world;
     Character * owner;
     std::vector<Building*> buildings;
-    
+
 public:
     Field(int x, int y, World * world);
-    virtual ~Field();
 
     void takeOwnership(Character * character);
 

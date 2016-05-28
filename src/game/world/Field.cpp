@@ -5,7 +5,7 @@
 
 Field::Field(int x, int y, World * world) : x(x), y(y), world(world) {}
 
-Field::~Field() {}
+void Field::randomize() {}
 
 void Field::render(Renderer &renderer, bool dark)const {
     renderer.drawField(const_cast<Field*>(this), dark);
@@ -30,8 +30,6 @@ std::string Field::getBuildingsDescription() {
     }
     return result.str();
 }
-
-void Field::randomize() {}
 
 std::vector<Field*> Field::getNeighbors(){
     size_t width  = GameData::read<size_t>("world", "width");
