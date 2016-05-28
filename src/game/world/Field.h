@@ -20,7 +20,7 @@ protected:
     std::string name;
     World * world;
     Character * owner;
-    std::vector<Building*> buildings;
+    std::vector<std::unique_ptr<Building>> buildings;
 
 public:
     Field(int x, int y, World * world);
@@ -39,7 +39,7 @@ public:
 
     std::vector<Field*> getNeighbors();
 
-    void addBuilding(Building * building);
+    void addBuilding(std::unique_ptr<Building> &&building);
 
     const std::string& getKind() const {
         return kind;
@@ -89,7 +89,7 @@ public:
         return id;
     }
 
-    const std::vector<Building *> &getBuildings() const {
+    const std::vector<std::unique_ptr<Building>> &getBuildings() const {
         return buildings;
     }
 };
