@@ -15,10 +15,7 @@ public:
     Soil();
     Soil(std::string name);
 
-    static std::string randomizeSoilKind() {
-        int size = sizeof(soilKinds) / 8;
-        return soilKinds[rand() % size];
-    }
+    static std::string randomizeSoilKind();
 
     int getFertility() const {
         return fertility;
