@@ -6,16 +6,16 @@ class Button;
 class FieldSelector;
 class Player;
 
-class ButtonHandler {
+class ButtonsBar {
 private:
     std::vector<Button*> buttons;
     FieldSelector * fieldSelector;
     Player * currentPlayer;
 public:
 
-    ButtonHandler(FieldSelector * fieldSelector, Player * currentPlayer);
+    ButtonsBar(FieldSelector * fieldSelector, Player * currentPlayer);
 
-    ~ButtonHandler();
+    ~ButtonsBar();
 
     void handleClick(int x, int y);
 

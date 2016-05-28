@@ -17,8 +17,8 @@ ModusTollens::ModusTollens(sf::RenderWindow &window) : window(window), renderer(
     timer->addObserver(&player);
 
     sidebar = std::make_unique<Sidebar>(calendar.get());
-    buttonHandler = std::make_unique<ButtonHandler>(fieldSelector.get(), &player);
-    buttonHandler->initializeButtons(sidebar->getX());
+    buttonsBar = std::make_unique<ButtonsBar>(fieldSelector.get(), &player);
+    buttonsBar->initializeButtons(sidebar->getX());
 }
 
 void ModusTollens::loop() {
@@ -34,7 +34,7 @@ void ModusTollens::loop() {
 
             if(event.type == sf::Event::MouseButtonPressed){
                 fieldSelector->findField(event.mouseButton.x, event.mouseButton.y);
-                buttonHandler->handleClick(event.mouseButton.x, event.mouseButton.y);
+                buttonsBar->handleClick(event.mouseButton.x, event.mouseButton.y);
             }
             if(event.type == sf::Event::KeyPressed){
                 renderer.setMapMode(event.text.unicode);
@@ -44,7 +44,7 @@ void ModusTollens::loop() {
         window.clear(sf::Color::Black);
 
         world->render(renderer);
-        buttonHandler->render(renderer);
+        buttonsBar->render(renderer);
         sidebar->render(renderer);
         player.render(renderer);
 

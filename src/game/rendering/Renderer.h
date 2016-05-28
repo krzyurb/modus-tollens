@@ -6,7 +6,7 @@
 #include "Player.h"
 #include "Sidebar.h"
 #include "Button.h"
-#include "ButtonHandler.h"
+#include "ButtonsBar.h"
 #include "FieldSelector.h"
 #include "World.h"
 #include "Field.h"
@@ -17,7 +17,7 @@ class Field;
 class World;
 class Sidebar;
 class FieldSelector;
-class ButtonHandler;
+class ButtonsBar;
 class Button;
 
 class Renderer {
@@ -37,7 +37,7 @@ public:
 
     void drawWorld(World &world);
     void drawSidebar(const Sidebar &sidebar);
-    void drawButtons(const ButtonHandler &buttonHandler);
+    void drawButtons(const ButtonsBar &buttonsBar);
     void drawButton(const Button &button);
     void drawPlayer(Player &player);
     void setFieldSelector(FieldSelector * fieldSelector);

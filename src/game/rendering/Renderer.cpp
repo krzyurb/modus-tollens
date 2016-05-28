@@ -80,8 +80,8 @@ void Renderer::drawSidebar(const Sidebar &sidebar){
     window.draw(calendarSprite);
 }
 
-void Renderer::drawButtons(const ButtonHandler &buttonHandler){
-    for(auto &button: buttonHandler.getButtons()) {
+void Renderer::drawButtons(const ButtonsBar &buttonsBar){
+    for(auto &button: buttonsBar.getButtons()) {
         button->render(*this);
     }
 }
