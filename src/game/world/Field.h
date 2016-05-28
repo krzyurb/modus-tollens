@@ -15,7 +15,7 @@ class Building;
 class Field {
 protected:
     int x, y;
-    int id;
+    size_t id;
     std::string kind;
     std::string name;
     World * world;

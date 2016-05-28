@@ -9,5 +9,5 @@ private:
     World * world;
 public:
     FieldFactory(World * world);
-    Field * create(TileKind kind, int x, int y);
+    std::unique_ptr<Field> create(TileKind kind, int x, int y);
 };

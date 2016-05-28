@@ -8,16 +8,16 @@ FieldFactory::FieldFactory(World * world) : world(world) {
     tileSize = GameData::read<int>("world", "tileSize");
 }
 
-Field * FieldFactory::create(TileKind kind, int x, int y) {
+std::unique_ptr<Field> FieldFactory::create(TileKind kind, int x, int y) {
     switch(kind){
         case TileKind::Meadow:
-            return new Meadow(x * tileSize, y * tileSize, world);
+            return std::move(std::make_unique<Meadow>(x * tileSize, y * tileSize, world));
         case TileKind::Water:
-            return new Water(x * tileSize, y * tileSize, world);
+            return std::move(std::make_unique<Water>(x * tileSize, y * tileSize, world));
         case TileKind::Forest:
-            return new Forest(x * tileSize, y * tileSize, world);
+            return std::move(std::make_unique<Forest>(x * tileSize, y * tileSize, world));
         default:
-            return nullptr;
+            return std::move(std::unique_ptr<Field>(nullptr));
     }
 }
 

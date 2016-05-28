@@ -18,10 +18,10 @@ std::unique_ptr<World> WorldGenerator::generate(int width, int height) {
 
     for(int i = 0; i < width; i++){
         for(int j = 0; j < height; j++){
-            Field *field = fieldFactory.create(randomizeTileKind(), i, j);
+            std::unique_ptr<Field> field = fieldFactory.create(randomizeTileKind(), i, j);
             field->randomize();
             field->setId(id++);
-            world->addField(field);
+            world->addField(std::move(field));
         }
     }
 

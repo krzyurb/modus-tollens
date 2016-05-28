@@ -35,14 +35,14 @@ std::vector<Field*> Field::getNeighbors(){
     size_t width  = GameData::read<size_t>("world", "width");
     size_t height = GameData::read<size_t>("world", "height");
     std::vector<Field*> neighbors;
-    if(getId() > 0)
-        neighbors.push_back(getWorld()->getFields()[getId() - 1]);
-    if(getId() < getWorld()->getFields().size())
-        neighbors.push_back(getWorld()->getFields()[getId() + 1]);
-    if(getId() >= height)
-        neighbors.push_back(getWorld()->getFields()[getId() - height]);
-    if(getId() < height * (width - 1))
-        neighbors.push_back(getWorld()->getFields()[getId() + height]);
+    if(id > 0)
+        neighbors.push_back((*world)[id - 1]);
+    if(id < getWorld()->getFields().size())
+        neighbors.push_back(world->get(id + 1));
+    if(id >= height)
+        neighbors.push_back(world->get(getId() - height));
+    if(id < height * (width - 1))
+        neighbors.push_back(world->get(id + height));
     return neighbors;
 }
 

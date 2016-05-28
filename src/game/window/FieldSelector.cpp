@@ -2,7 +2,7 @@
 #include "game/world/World.h"
 
 FieldSelector::FieldSelector(World *world) : world(world) {
-    selectedField = world->getFields()[0];
+    selectedField = world->get(0);
 }
 
 Field *FieldSelector::findField(int x, int y)
@@ -16,7 +16,7 @@ Field *FieldSelector::findField(int x, int y)
     int row = x / tileSize + 1;
     int num = ((row -1) * 30) + col;
 
-    Field *foundField = world->getFields()[num -1];
+    Field *foundField = world->get(num -1);
     selectedField = foundField;
 
     return foundField;

@@ -31,7 +31,7 @@ void Renderer::drawField(Field *field, bool dark){
 void Renderer::drawWorld(World &world){
     Field *selectedField = fieldSelector->getSelectedField();
 
-    for(auto field : world.getFields()) {
+    for(auto &&field : world.getFields()) {
         field->render(*this);
         selectedField->render(*this, true);
     }

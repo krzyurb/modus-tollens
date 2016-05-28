@@ -10,22 +10,32 @@ class Field;
 
 class World {
 public:
-    World();
-    ~World();
     void render(Renderer &renderer);
 
-    const std::vector<Field*> getFields() {
+    const std::vector<std::unique_ptr<Field>> &getFields() {
         return fields;
     }
 
-    void addField(Field * field) {
-        fields.push_back(field);
+    void addField(std::unique_ptr<Field> &&field) {
+        fields.push_back(std::move(field));
     }
 
     void setField(int id, Field * field){
-        fields[id] = field;
+        fields[id].reset(field);
+    }
+
+    Field* operator[](size_t id) {
+        return fields[id].get();
+    }
+
+    const Field* operator[](size_t id) const {
+        return fields[id].get();
+    }
+
+    Field* get(size_t id) {
+        return (*this)[id];
     }
 
 private:
-    std::vector<Field*> fields;
+    std::vector<std::unique_ptr<Field>> fields;
 };
