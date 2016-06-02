@@ -1,7 +1,9 @@
 #include <sstream>
 #include "Mountains.h"
 
-Mountains::Mountains(int x, int y, World *world) : Field(x, y, world) {}
+Mountains::Mountains(int x, int y, World *world) : Field(x, y, world) {
+    this->kind = "mountains";
+}
 
 std::string Mountains::getDescription() {
     std::stringstream desc;

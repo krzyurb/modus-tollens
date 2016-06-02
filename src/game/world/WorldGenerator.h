@@ -3,7 +3,7 @@
 #include "World.h"
 
 enum class TileKind{
-    Meadow, Water, Forest, SIZE
+    Meadow, Water, Forest, Mountains, SIZE
 };
 
 class WorldGenerator {
