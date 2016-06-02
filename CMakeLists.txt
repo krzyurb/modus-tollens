@@ -68,7 +68,7 @@ set(SOURCE_FILES
     src/game/world/buildings/Farm.cpp
     src/game/world/buildings/Farm.h
     src/game/window/listeners/NewBuilding.cpp
-    src/game/window/listeners/NewBuilding.h)
+    src/game/window/listeners/NewBuilding.h src/game/rendering/map_modes/BuildingMode.cpp src/game/rendering/map_modes/BuildingMode.h)
 
 set(TEST_SOURCES
     test/GameData_test.cpp

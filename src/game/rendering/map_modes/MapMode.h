@@ -18,5 +18,5 @@ public:
 
     virtual sf::Sprite getSprite(Field * field) const = 0;
 
-    enum { NORMAL, FERTILITY, TREES, SIZE };
+    enum { NORMAL, FERTILITY, TREES, BUILDING, SIZE };
 };
