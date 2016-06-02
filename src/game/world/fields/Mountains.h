@@ -12,6 +12,8 @@ public:
 
     void randomize();
 
+    void mineStone(int count);
+
     int getStoneCount(){
         return this->stoneCount;
     }

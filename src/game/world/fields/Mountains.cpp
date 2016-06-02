@@ -15,3 +15,7 @@ std::string Mountains::getDescription() {
 void Mountains::randomize() {
     setStoneCount(rand() % 500);
 }
+
+void Mountains::mineStone(int count) {
+    stoneCount -= count;
+}

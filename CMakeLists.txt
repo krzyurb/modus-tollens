@@ -73,7 +73,9 @@ set(SOURCE_FILES
     src/game/rendering/map_modes/BuildingMode.h
     src/game/window/listeners/NewBuilding.h
     src/game/world/fields/Mountains.cpp
-    src/game/world/fields/Mountains.h)
+    src/game/world/fields/Mountains.h
+    src/game/world/buildings/Quarry.cpp
+    src/game/world/buildings/Quarry.h)
 
 set(TEST_SOURCES
     test/GameData_test.cpp
