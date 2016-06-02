@@ -1,6 +1,7 @@
 #include "City.h"
 #include "Sawmill.h"
 #include "Farm.h"
+#include "Quarry.h"
 #include "NewBuilding.h"
 
 void NewBuilding::perform() {
@@ -14,6 +15,10 @@ void NewBuilding::perform() {
 
         case BuildingKinds::FARM:
             building = std::move(std::make_unique<Farm>(field));
+        break;
+
+        case BuildingKinds::QUARRY:
+            building = std::move(std::make_unique<Quarry>(field));
         break;
     }
     field->takeOwnership((Character *) getOwner());

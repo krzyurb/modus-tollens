@@ -8,7 +8,7 @@ Mountains::Mountains(int x, int y, World *world) : Field(x, y, world) {
 std::string Mountains::getDescription() {
     std::stringstream desc;
     desc << "Stones: " << this->getStoneCount() << "\n";
-
+    desc << getBuildingsDescription();
     return desc.str();
 }
 

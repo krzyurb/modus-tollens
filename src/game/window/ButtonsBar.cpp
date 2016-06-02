@@ -36,9 +36,15 @@ void ButtonsBar::initializeButtons(int x){
     NewBuilding * newFarmListener  = new NewBuilding(BuildingKinds::FARM, fieldSelector, getCurrentPlayer());
     newFarm->setListener(newFarmListener);
 
+    y+=25;
+    std::unique_ptr<Button> newQuarry  = std::make_unique<Button>(x, y, "Build Quarry");
+    NewBuilding * newQuarryListener  = new NewBuilding(BuildingKinds::QUARRY, fieldSelector, getCurrentPlayer());
+    newQuarry->setListener(newQuarryListener);
+
     addButton(std::move(buildCity));
     addButton(std::move(newSawmill));
     addButton(std::move(newFarm));
+    addButton(std::move(newQuarry));
 }
 
 void ButtonsBar::render(Renderer &renderer) {

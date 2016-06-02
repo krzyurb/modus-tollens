@@ -2,7 +2,7 @@
 
 #include "Field.h"
 
-enum class BuildingKinds { SAWMILL, FARM };
+enum class BuildingKinds { SAWMILL, FARM, QUARRY };
 
 class Player;
 
