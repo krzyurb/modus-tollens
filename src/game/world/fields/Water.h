@@ -1,8 +1,8 @@
 #pragma once
 
 #include <string>
-#include "../World.h"
-#include "../Field.h"
+#include "World.h"
+#include "Field.h"
 
 class Water : public Field {
 private:
