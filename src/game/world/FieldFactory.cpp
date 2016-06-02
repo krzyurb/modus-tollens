@@ -11,13 +11,13 @@ FieldFactory::FieldFactory(World * world) : world(world) {
 std::unique_ptr<Field> FieldFactory::create(TileKind kind, int x, int y) {
     switch(kind){
         case TileKind::Meadow:
-            return std::move(std::make_unique<Meadow>(x * tileSize, y * tileSize, world));
+            return std::make_unique<Meadow>(x * tileSize, y * tileSize, world);
         case TileKind::Water:
-            return std::move(std::make_unique<Water>(x * tileSize, y * tileSize, world));
+            return std::make_unique<Water>(x * tileSize, y * tileSize, world);
         case TileKind::Forest:
-            return std::move(std::make_unique<Forest>(x * tileSize, y * tileSize, world));
+            return std::make_unique<Forest>(x * tileSize, y * tileSize, world);
         default:
-            return std::move(std::unique_ptr<Field>(nullptr));
+            return std::unique_ptr<Field>(nullptr);
     }
 }
 
