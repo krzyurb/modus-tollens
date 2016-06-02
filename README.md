@@ -2,7 +2,7 @@
 2D Realtime economic strategy game with no main objectives.
 
 ## Prerequisites
-
+* Linux or Mac OS X
 * SFML 2.3.2
 * boost 1.60.0
 * gtest 1.7.0
